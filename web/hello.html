@@ -5,14 +5,27 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <style>
  	h1{
- 		color: blue; 
- 		font-family: verdana;
+ 		color: green; 
+         font-family: verdana;
+         font-size: 8vw;;
  	}
+ 	.grid {
+    display: grid;
+    grid-template-columns: auto 35% auto;
+    grid-template-rows: auto 50% auto;
+    grid-gap: auto;
+  }
+   #center{
+    grid-column: 2;
+    grid-row: 2;
+  }
  </style>
  <title>Week 01</title>
  </head>
  <body>
 
-	<h1 >Hello World</h1>
+    <div class="grid">
+        <h1 id="center">Hello World</h1>
+	</div>
 </body>
 </html>
