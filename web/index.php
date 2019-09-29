@@ -44,16 +44,16 @@ fclose( $file );
 </div>
 
 <div class="container">
-  <div class="tableHeaders">Assignments</div>
-<div class="row">
+  <div class="tableHeaders p-5 m-5">Assignments</div>
+<div class="row p-5 m-5">
   <a class="btn btn-primary" href='/team02/teamAct.php'>Week02 Team Activity</a>
 </div>
-<div class="row">
-  <div class="col-6">
-    <div class="card w-25 bg-primary text-white p-3 m-3" style="width: 18rem;" onmouseover="initDivMouseOver()">
-    <div class="card-header bg-primary text-white p-auto">Visitor Counter</div>
-      <div class="card-body p-auto">
-        <p class="card-text p-auto">You are visitor number <?echo $count;?>!</p>
+<div class="row p-5 m-5">
+  <div class="col-6 p-5 m-5">
+    <div class="card w-25 bg-primary text-white p-5 m-5" style="width: 18rem;" onmouseover="initDivMouseOver()">
+    <div class="card-header bg-primary text-white p-5 m-5">Visitor Counter</div>
+      <div class="card-body p-5 m-5">
+        <p class="card-text p-5 m-5">You are visitor number <?echo $count;?>!</p>
       </div>
     </div>
 </div>
