@@ -45,7 +45,7 @@ fclose( $file );
 
 <div class="container">
 
-  <a href='/team02/TeamActivity.html'>Week02 Team Activity</a>
+  <a href='/team02/teamAct.php'>Week02 Team Activity</a>
     <div class="counter">You are visitor number <?echo $count;?>!</div>
 
 </div>
