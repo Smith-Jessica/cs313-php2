@@ -59,19 +59,21 @@ fclose( $file );
 <div class="row p-5 m-5">
   <a class="btn btn-primary col-8 col-sm-offset-3" href=''>Week04 Team Activity</a>
 </div>
-<div class="row p-5 m-5">
-  <div class="col-8 col-sm-offset-1 p-5 m-5">
-    <div class="card w-25 bg-primary text-white p-5 m-5" style="width: 18rem;" onmouseover="initDivMouseOver()">
+
+</div>
+
+<div class="container -fluid">
+
+
+    <div class="card w-25 bg-primary text-white p-5 m-5">
     <div class="card-header bg-primary text-white p-5 m-5">Visitor Counter</div>
       <div class="card-body p-5 m-5">
         <p class="card-text p-5 m-5">You are visitor number <?echo $count;?>!</p>
       </div>
     </div>
-</div>
-</div>
+
 
 </div>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 </body>
