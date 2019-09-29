@@ -1,8 +1,5 @@
 <?php
 
-
-    echo '<a href="/index.html">Home</a>';
-
 // Add path to countlog.txt file.
 $path = '/countlog.txt';
 
@@ -32,7 +29,6 @@ fclose( $file );
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
    
    <script src="homepage.js"></script>
-   <script src="homepage.php"></script>
    <link rel="stylesheet" type="text/css" href="homepage.css">
 
    <title>CS313 -- Jessica's Assignments</title>
