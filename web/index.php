@@ -44,10 +44,10 @@ fclose( $file );
 
 <div class="container">
   <div class="row">
-    <div class="col-8 col-sm-offset-3 tableHeaders">About Me</div>
+    <div class="col-8 col-sm-offset-2 tableHeaders">About Me</div>
   </div>
   <div class="row">
-    <div class="col-8 col-sm-offset-3"><p>My name is Jessica. I am in my last semester of school. I will graduate with an Associate's Degree in Computer Programming. I only plan to pursue a bachelor's degree if my employer requests it of me(and subsequently pays for it). I have been married for almost 2 years now. I enjoy mountain biking, hiking and playing PC games with my husband. My favorite color is green. That's the only favorite thing that has stayed with me. I don't have a favorite movie, song or book. I have some that I like but I don't have any that I would call my absolute favorite. </p></div>
+    <div class="col-8 col-sm-offset-2"><p>My name is Jessica. I am in my last semester of school. I will graduate with an Associate's Degree in Computer Programming. I only plan to pursue a bachelor's degree if my employer requests it of me(and subsequently pays for it). I have been married for almost 2 years now. I enjoy mountain biking, hiking and playing PC games with my husband. My favorite color is green. That's the only favorite thing that has stayed with me. I don't have a favorite movie, song or book. I have some that I like but I don't have any that I would call my absolute favorite. </p></div>
   </div>
 </div>
 
