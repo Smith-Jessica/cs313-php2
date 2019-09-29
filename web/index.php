@@ -4,7 +4,7 @@
     echo '<a href="/index.html">Home</a>';
 
 // Add path to countlog.txt file.
-$path = '/Week02/countlog.txt';
+$path = '/countlog.txt';
 
 // Opens countlog.txt to read the number of hits.
 $file  = fopen( $path, 'r' );
