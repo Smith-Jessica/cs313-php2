@@ -15,7 +15,7 @@
 </head>
 
 <body>
-<?php include '../navbar.php';?>
+<?php include 'navbar.php';?>
 <div class="container-fluid">
   <div class="row">
   <div class="tableHeaders p-5 m-5 col-8 col-sm-offset-3">Assignments</div>
