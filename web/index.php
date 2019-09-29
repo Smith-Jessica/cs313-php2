@@ -43,13 +43,24 @@ fclose( $file );
 
 </div>
 
-<div class="container">
-  <div class="tableHeaders p-5 m-5">Assignments</div>
-<div class="row p-5 m-5">
-  <a class="btn btn-primary" href='/team02/teamAct.php'>Week02 Team Activity</a>
+<div class="container -fluid">
+  <div class="row">
+  <div class="tableHeaders p-5 m-5 col-8 col-sm-offset-3">Assignments</div>
 </div>
 <div class="row p-5 m-5">
-  <div class="col-6 p-5 m-5">
+  <a class="btn btn-primary col-8 col-sm-offset-3" href='/team02/teamAct.php'>Week02 Team Activity</a>
+</div>
+<div class="row p-5 m-5">
+  <a class="btn btn-primary col-8 col-sm-offset-3" href=''>Week03 Team Activity</a>
+</div>
+<div class="row p-5 m-5">
+  <a class="btn btn-primary col-8 col-sm-offset-3" href=''>Week03 Ponder Activity</a>
+</div>
+<div class="row p-5 m-5">
+  <a class="btn btn-primary col-8 col-sm-offset-3" href=''>Week04 Team Activity</a>
+</div>
+<div class="row p-5 m-5">
+  <div class="col-8 col-sm-offset-1 p-5 m-5">
     <div class="card w-25 bg-primary text-white p-5 m-5" style="width: 18rem;" onmouseover="initDivMouseOver()">
     <div class="card-header bg-primary text-white p-5 m-5">Visitor Counter</div>
       <div class="card-body p-5 m-5">
