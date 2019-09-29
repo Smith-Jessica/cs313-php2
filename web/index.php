@@ -45,16 +45,19 @@ fclose( $file );
 
 <div class="container">
   <div class="tableHeaders">Assignments</div>
-
+<div class="row">
   <a class="btn btn-primary" href='/team02/teamAct.php'>Week02 Team Activity</a>
-
-  <div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Visitor Counter</h5>
-    <p class="card-text">You are visitor number <?echo $count;?>!</p>
-  </div>
 </div>
-   
+<div class="row">
+  <div class="col-6">
+    <div class="card w-50 bg-primary text-white" style="width: 18rem;" onmouseover="initDivMouseOver()">
+      <div class="card-body">
+        <h5 class="card-title">Visitor Counter</h5>
+        <p class="card-text">You are visitor number <?echo $count;?>!</p>
+      </div>
+    </div>
+</div>
+</div>
 
 </div>
 
