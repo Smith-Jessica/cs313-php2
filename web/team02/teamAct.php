@@ -15,7 +15,7 @@
 </head>
 
 <body>
-<?php include 'navbar.php';?>
+<?php include '/web/navbar.php';?>
   <div class="container-fluid">
     <div id="first" onmouseover="initDivMouseOver()" class="row">First</div>
     <div id="second" onmouseover="initDivMouseOver()"class="row">Second</div>
