@@ -44,8 +44,10 @@ fclose( $file );
 </div>
 
 <div class="container">
+  <div class="tableHeaders">Assignments</div>
 
-  <a href='/team02/teamAct.php'>Week02 Team Activity</a>
+  <a class="btn btn-primary" href='/team02/teamAct.php'>Week02 Team Activity</a>
+
     <div class="counter">You are visitor number <?echo $count;?>!</div>
 
 </div>
