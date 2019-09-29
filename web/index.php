@@ -43,7 +43,8 @@ fclose( $file );
 </div>
 
 <div class="container">
-    <div>You are visitor number <?echo $count;?>!</div>
+  <a href='/team02/TeamActivity.html'>Week02 Team Activity</a>
+    <div class="counter">You are visitor number <?echo $count;?>!</div>
 
 </div>
 
