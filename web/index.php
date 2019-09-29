@@ -50,10 +50,10 @@ fclose( $file );
 </div>
 <div class="row">
   <div class="col-6">
-    <div class="card w-25 bg-primary text-white" style="width: 18rem;" onmouseover="initDivMouseOver()">
+    <div class="card w-25 bg-primary text-white p-auto" style="width: 18rem;" onmouseover="initDivMouseOver()">
     <div class="card-header bg-primary text-white p-auto">Visitor Counter</div>
       <div class="card-body p-auto">
-        <p class="card-text">You are visitor number <?echo $count;?>!</p>
+        <p class="card-text p-auto">You are visitor number <?echo $count;?>!</p>
       </div>
     </div>
 </div>
