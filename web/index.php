@@ -40,30 +40,18 @@ fclose( $file );
 
     </div>
 
-
 </div>
 
-<div class="container-fluid">
+<div class="container">
   <div class="row">
-  <div class="tableHeaders p-5 m-5 col-8 col-sm-offset-3">Assignments</div>
-</div>
-<div class="row p-5 m-5">
-  <a class="btn btn-primary col-8 col-sm-offset-3" href='/team02/teamAct.php'>Week02 Team Activity</a>
-</div>
-<div class="row p-5 m-5">
-  <a class="btn btn-primary col-8 col-sm-offset-3" href=''>Week03 Team Activity</a>
-</div>
-<div class="row p-5 m-5">
-  <a class="btn btn-primary col-8 col-sm-offset-3" href=''>Week03 Ponder Activity</a>
-</div>
-<div class="row p-5 m-5">
-  <a class="btn btn-primary col-8 col-sm-offset-3" href=''>Week04 Team Activity</a>
-</div>
-
+    <div class="col-8 col-sm-offset-3 tableHeaders">About Me</div>
+  </div>
+  <div class="row">
+    <div class="col-8 col-sm-offset-3"><p>My name is Jessica. I am in my last semester of school. I will graduate with an Associate's Degree in Computer Programming. I only plan to pursue a bachelor's degree if my employer requests it of me(and subsequently pays for it). I have been married for almost 2 years now. I enjoy mountain biking, hiking and playing PC games with my husband. My favorite color is green. That's the only favorite thing that has stayed with me. I don't have a favorite movie, song or book. I have some that I like but I don't have any that I would call my absolute favorite. </p></div>
+  </div>
 </div>
 
 <div class="container-fluid" id="footer">
-
 
     <div class="card w-25 bg-primary text-white p-5 m-5">
     <div class="card-header bg-primary text-white p-5 m-5">Visitor Counter</div>
