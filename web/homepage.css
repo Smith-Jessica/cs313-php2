@@ -19,8 +19,8 @@ html,body{
     height: 100%
 }
 #footer {
-    margin-bottom: 50px;
-    height: 50px;
+    margin-top: 50px;
+    height: 25vh;
     left: 0;
     position: absolute;
     right: 0;

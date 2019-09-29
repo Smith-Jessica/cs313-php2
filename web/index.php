@@ -43,7 +43,7 @@ fclose( $file );
 
 </div>
 
-<div class="container -fluid">
+<div class="container-fluid">
   <div class="row">
   <div class="tableHeaders p-5 m-5 col-8 col-sm-offset-3">Assignments</div>
 </div>
@@ -62,7 +62,7 @@ fclose( $file );
 
 </div>
 
-<div class="container -fluid" id="footer">
+<div class="container-fluid" id="footer">
 
 
     <div class="card w-25 bg-primary text-white p-5 m-5">
