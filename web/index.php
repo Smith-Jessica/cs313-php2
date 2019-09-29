@@ -31,7 +31,7 @@ fclose( $file );
    <title>CS313 -- Jessica's Assignments</title>
 </head>
 <body>
-    
+<?php include 'navbar.php';?>
 <div class="container-fluid">
 
     <div class="d-flex justify-content-center align-items-center jumbotron">
@@ -40,9 +40,11 @@ fclose( $file );
 
     </div>
 
+
 </div>
 
 <div class="container">
+
   <a href='/team02/TeamActivity.html'>Week02 Team Activity</a>
     <div class="counter">You are visitor number <?echo $count;?>!</div>
 
