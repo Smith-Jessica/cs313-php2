@@ -47,12 +47,14 @@ fclose( $file );
   <div class="tableHeaders">Assignments</div>
 
   <a class="btn btn-primary" href='/team02/teamAct.php'>Week02 Team Activity</a>
-  <div class="card">
+
+  <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <div class="counter">You are visitor number <?echo $count;?>!</div>
+    <h5 class="card-title">Visitor Counter</h5>
+    <p class="card-text">You are visitor number <?echo $count;?>!</p>
   </div>
 </div>
-    
+   
 
 </div>
 
