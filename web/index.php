@@ -1,8 +1,8 @@
 <?php
 
-  phpinfo();
+
     echo '<a href="/index.html">Home</a>';
-    
+
 // Add path to countlog.txt file.
 $path = '/Week02/countlog.txt';
 
