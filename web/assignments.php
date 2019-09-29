@@ -20,16 +20,16 @@
   <div class="row">
   <div class="tableHeaders p-5 m-5 col-8 col-sm-offset-3">Assignments</div>
 </div>
-<div class="row p-5 m-5">
+<div class="row p-5 mb-5">
   <a class="btn btn-primary col-8 col-sm-offset-3" href='/team02/teamAct.php'>Week02 Team Activity</a>
 </div>
-<div class="row p-5 m-5">
+<div class="row p-5 mb-5">
   <a class="btn btn-primary col-8 col-sm-offset-3" href=''>Week03 Team Activity</a>
 </div>
-<div class="row p-5 m-5">
+<div class="row p-5 mb-5">
   <a class="btn btn-primary col-8 col-sm-offset-3" href=''>Week03 Ponder Activity</a>
 </div>
-<div class="row p-5 m-5">
+<div class="row p-5 mb-5">
   <a class="btn btn-primary col-8 col-sm-offset-3" href=''>Week04 Team Activity</a>
 </div>
 
