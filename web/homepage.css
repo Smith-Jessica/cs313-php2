@@ -25,3 +25,8 @@ html,body{
     position: absolute;
     right: 0;
   }
+  background {
+      background-image: url("adventure-alpine-background.jpg");
+      background-size: auto;
+      min-height: 100vh;
+  }
