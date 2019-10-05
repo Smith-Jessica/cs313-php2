@@ -24,7 +24,7 @@
     $y = Collection::$allProducts.getItem($x);
     echo $y;
     echo var_dump($y);
-/*
+
       for($x = 0; $x < Collection::$allProducts.length(); $x++){
         // will need a for loop to instantiate $y and then probably need to delete it at the end of each iteration -- This is my backup plan if the below does not work. 
       //gonna try the below method first. See if it transfers over all of the Object info to $y
@@ -42,7 +42,7 @@
             "</div> </div>";
         unset($y);
       }
-      */
+      ini_set('display_errors', 1);
   ?>
   </div>
 </body>

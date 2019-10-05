@@ -40,4 +40,6 @@ class Collection
     public function length() {
         return count($this->items);
     }
+    
 }
+?>
