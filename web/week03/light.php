@@ -3,6 +3,7 @@
 session_start();
 include 'navbar.php';
 include 'products.php';
+$allProducts = unserialize($_SESSION["allProducts"]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,12 +24,17 @@ include 'products.php';
         <div class="row">
         <div class="col-sm-6 d-flex justify-content-center">
         <div class="card" style="width:70rem">
-        <img class="card-img-top" src= <?php echo $allProducts[0]->imagelink; ?> alt="Card image" style="width:100%">
+        <img class="card-img-top" src= <?php $allProducts = unserialize($_SESSION["allProducts"]); echo $allProducts[0]->imagelink; ?> alt="Card image" style="width:100%">
         <div class="card-body">
-        <h4 class="card-title"> <?php echo $allProducts[0]->title; ?> </h4>
-        <p class="card-text"> . $y->desc . </p>
-        <a href="" class="btn btn-primary">See Product</a>
+        <h4 class="card-title"> <?php $allProducts = unserialize($_SESSION["allProducts"]); echo $allProducts[0]->title; ?> </h4>
+        <p class="card-text"><?php $allProducts = unserialize($_SESSION["allProducts"]); echo $allProducts[0]->desc; ?></p>
+        <button onclick="addtoCart()" class="btn btn-primary">Add to Cart</button>
         </div> </div> </div>
   </div>
+  <script>
+    function addtoCart() {
+        <?php $allProducts = unserialize($_SESSION["allProducts"]); $allProducts[0]->inCart = true; ?>
+    }
+  </script>
   </body>
   </html>

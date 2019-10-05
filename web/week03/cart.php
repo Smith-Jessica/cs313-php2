@@ -33,6 +33,7 @@ session_start();
 
 <?php
     include 'products.php';
+    $allProducts = unserialize($_SESSION["allProducts"]);
 
     $allProducts = new Collection();
     
