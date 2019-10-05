@@ -20,7 +20,7 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="browse.php">Home</a></li>
-      <li class="active pull-right"><a href="checkout.php">Checkout Now</a></li>
+      <li class="active pull-right"><a href="cart.php">View Cart</a></li>
     </ul>
   </div>
 </nav>

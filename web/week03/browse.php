@@ -13,7 +13,7 @@
 
 <body>
   <h1>Shop Here</h1>
-  <div class="container">
+  <div class="container-fluid">
 <?php
 include 'navbar.php';
 include 'products.php';
