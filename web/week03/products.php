@@ -50,6 +50,7 @@ class Collection
     public $desc;
     public $title;
     public $detailLink;
+    public $inCart = false;
     public static $count=0;
 
     public function __construct($price, $imagelink, $desc, $title, $detailLink)
@@ -60,10 +61,6 @@ class Collection
         $this->title= $title;
         $this->$detailLink = $detailLink;
         Product::$count++;
-        return true;
-    }
-    public function _construct()
-    {
         return true;
     }
 }
