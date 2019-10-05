@@ -16,7 +16,6 @@
   <div class="container">
     <?php
     include 'products.php';
-    include 'collections.php';
   //  $y = new Product();
   //  $y = Collection::$allProducts.getItem($x);
   $y = 2;
