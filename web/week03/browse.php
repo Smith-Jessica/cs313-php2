@@ -20,15 +20,17 @@
 LOOP HERE
 <?php
 for($x = 0; $x < Products::$count; $x++){
-
-  <div class="card" style="width:400px">
-      <img class="card-img-top" src= alt="Card image" style="width:100%">
-      <div class="card-body">
-        <h4 class="card-title">John Doe</h4>
-        <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-        <a href="#" class="btn btn-primary">See Profile</a>
-      </div>
-    </div>
+  //$y = new Product(); -- This is my backup plan if the below does not work. 
+//gonna try the below method first. See if it transfers over all of the Object info to $y
+  $y = $allProducts[$x];
+  var_dump($y);
+echo "<div class=\"card\" style=\"width:400px\">" .
+      "<img class=\"card-img-top\" src= alt=\"Card image\" style=\"width:100%\">" .
+      "<div class=\"card-body\">" .
+        "<h4 class=\"card-title\">" . $y->title . "</h4>" .
+        "<p class=\"card-text\">" . $y->desc . "</p>" .
+        "<a href=\"" . $y->detailLink . "\" class=\"btn btn-primary\">See Profile</a>" .
+      "</div> </div>";
   }
   ?>
   </div>
