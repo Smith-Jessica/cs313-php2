@@ -16,8 +16,8 @@
   <div class="container">
     <?php
     include 'products.php';
-    $y = new Product();
-  //  $y = Collection::$allProducts.getItem($x);
+  //  $y = new Product();
+    $y = Collection::$allProducts.getItem($x);
  
   //  echo var_dump($y);
 
