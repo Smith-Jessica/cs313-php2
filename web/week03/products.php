@@ -1,5 +1,5 @@
 <?php
-include 'collections.php';
+include "collections.php";
 
     class Product {
         public $price;
