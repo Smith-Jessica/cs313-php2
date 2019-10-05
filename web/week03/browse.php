@@ -30,7 +30,7 @@ include 'products.php';
         echo "<div class=\"row\">";
         echo "<div class=\"col-sm-6 d-flex justify-content-center\">";
         echo "<div class=\"card\" style=\"width:25rem\">";
-        echo "<img class=\"card-img-top\" src= alt=\"Card image\" style=\"width:100%\">";
+        echo "<img class=\"card-img-top\" src=" . $y->imagelink . "alt=\"Card image\" style=\"width:100%\">";
         echo "<div class=\"card-body\">";
         echo "<h4 class=\"card-title\">" . $y->title . "</h4>";
         echo "<p class=\"card-text\">" . $y->desc . "</p>";
