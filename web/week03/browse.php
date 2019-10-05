@@ -40,7 +40,7 @@ include 'products.php';
         echo "<div class=\"card-body\">";
         echo "<h4 class=\"card-title\">" . $y->title . "</h4>";
         echo "<p class=\"card-text\">" . $y->desc . "</p>";
-        echo "<a href=\"$y->detailLink\" class=\"btn btn-primary\">See Product</a>";
+        echo "<a href='$y->detailLink' class=\"btn btn-primary\">See Product</a>";
         echo "</div> </div> </div>";
 
       }

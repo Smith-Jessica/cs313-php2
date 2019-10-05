@@ -24,16 +24,16 @@ $allProducts = unserialize($_SESSION["allProducts"]);
         <div class="row">
         <div class="col-sm-6 d-flex justify-content-center">
         <div class="card" style="width:70rem">
-        <img class="card-img-top" src= <?php include 'products.php'; $allProducts = unserialize($_SESSION["allProducts"]); echo $allProducts[0]->imagelink; ?> alt="Card image" style="width:100%">
+        <img class="card-img-top" src= <?php // include 'products.php'; $allProducts = unserialize($_SESSION["allProducts"]); echo $allProducts[0]->imagelink; ?> alt="Card image" style="width:100%">
         <div class="card-body">
-        <h4 class="card-title"> <?php include 'products.php'; $allProducts = unserialize($_SESSION["allProducts"]); echo $allProducts[0]->title; ?> </h4>
-        <p class="card-text"><?php include 'products.php'; $allProducts = unserialize($_SESSION["allProducts"]); echo $allProducts[0]->desc; ?></p>
+        <h4 class="card-title"> <?php //include 'products.php'; $allProducts = unserialize($_SESSION["allProducts"]); echo $allProducts[0]->title; ?> </h4>
+        <p class="card-text"><?php //include 'products.php'; $allProducts = unserialize($_SESSION["allProducts"]); echo $allProducts[0]->desc; ?></p>
         <button onclick="addtoCart()" class="btn btn-primary">Add to Cart</button>
         </div> </div> </div>
   </div>
   <script>
     function addtoCart() {
-        <?php include 'products.php'; $allProducts = unserialize($_SESSION["allProducts"]); $allProducts[0]->inCart = true; ?>
+        <?php //include 'products.php'; $allProducts = unserialize($_SESSION["allProducts"]); $allProducts[0]->inCart = true; ?>
     }
   </script>
   </body>
