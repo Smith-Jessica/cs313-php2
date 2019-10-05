@@ -3,6 +3,8 @@
 
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,10 +17,10 @@
 </head>
 
 <body>
-<div class="container">
+  <h1>Shop Here</h1>
+  <div class="container">
 
-LOOP HERE
-<?php
+    <?php
 for($x = 0; $x < Products::$count; $x++){
   //$y = new Product(); -- This is my backup plan if the below does not work. 
 //gonna try the below method first. See if it transfers over all of the Object info to $y
