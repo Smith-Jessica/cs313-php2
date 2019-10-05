@@ -23,5 +23,6 @@
 
     $alexa = new Product(30, 'alexa.jpg', "Amazon Alexa gives you complete control. Better than our competitors, who will remain nameless *cough*Google*cough*", "Amazon Alexa");
  
+    $allProducts = array($light, $hub, $alexa);
 
 ?>

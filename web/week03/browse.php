@@ -19,7 +19,7 @@
 
 LOOP HERE
 <?php
-foreach($key as $value){
+for($x = 0; $x < Products::$count; $x++){
 
   <div class="card" style="width:400px">
       <img class="card-img-top" src= alt="Card image" style="width:100%">
