@@ -18,22 +18,25 @@
     <?php
     
     include 'products.php';
+    include 'collections.php';
 
-for($x = 0; $x < Products::$count; $x++){
-  include 'products.php';
-  //$y = new Product(); will need a for loop to instantiate $y and then probably need to delete it at the end of each iteration -- This is my backup plan if the below does not work. 
-//gonna try the below method first. See if it transfers over all of the Object info to $y
-  $y = $allProducts[$x];
-  echo var_dump($y);
-echo "<div class=\"card\" style=\"width:400px\">" .
-      "<img class=\"card-img-top\" src= alt=\"Card image\" style=\"width:100%\">" .
-      "<div class=\"card-body\">" .
-        "<h4 class=\"card-title\">" . $y->title . "</h4>" .
-        "<p class=\"card-text\">" . $y->desc . "</p>" .
-        "<a href=\"" . $y->detailLink . "\" class=\"btn btn-primary\">See Profile</a>" .
-      "</div> </div>";
- // unset($y);
-    }
+      for($x = 0; $x < Collection::$allProducts.length(); $x++){
+        // will need a for loop to instantiate $y and then probably need to delete it at the end of each iteration -- This is my backup plan if the below does not work. 
+      //gonna try the below method first. See if it transfers over all of the Object info to $y
+        //$y = $allProducts[$x];
+        //echo var_dump($y);
+        $y = new Product();
+        $y = Collection::$allProducts.getItem($x);
+
+        echo "<div class=\"card\" style=\"width:400px\">" .
+            "<img class=\"card-img-top\" src= alt=\"Card image\" style=\"width:100%\">" .
+            "<div class=\"card-body\">" .
+              "<h4 class=\"card-title\">" . $y->title . "</h4>" .
+              "<p class=\"card-text\">" . $y->desc . "</p>" .
+              "<a href=\"" . $y->detailLink . "\" class=\"btn btn-primary\">See Profile</a>" .
+            "</div> </div>";
+        unset($y);
+      }
   ?>
   </div>
 </body>
