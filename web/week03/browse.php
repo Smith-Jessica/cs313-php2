@@ -27,13 +27,16 @@ include 'products.php';
       for($x = 0; $x < $allProducts->length(); $x++){
         $y = $allProducts->getItem($x);
 
-        echo "<div class=\"card\" style=\"width:400px\">";
+        echo "<div class=\"container-fluid\">";
+        echo "<div class=\"row\">";
+        echo "<div class=\"col-sm-6 d-flex justify-content-center\">";
+        echo "<div class=\"card\" style=\"width:25rem\">";
         echo "<img class=\"card-img-top\" src= alt=\"Card image\" style=\"width:100%\">";
         echo "<div class=\"card-body\">";
         echo "<h4 class=\"card-title\">" . $y->title . "</h4>";
         echo "<p class=\"card-text\">" . $y->desc . "</p>";
         echo "<a href=\"" . $y->detailLink . "\" class=\"btn btn-primary\">See Product</a>";
-        echo "</div> </div>";
+        echo "</div> </div> </div>";
 
       }
 
