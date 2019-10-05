@@ -15,6 +15,7 @@
   <h1>Shop Here</h1>
   <div class="container">
 <?php
+include 'navbar.php';
 include 'products.php';
 
         $allProducts = new Collection();
@@ -31,7 +32,7 @@ include 'products.php';
         echo "<div class=\"card-body\">";
         echo "<h4 class=\"card-title\">" . $y->title . "</h4>";
         echo "<p class=\"card-text\">" . $y->desc . "</p>";
-        echo "<a href=\"" . $y->detailLink . "\" class=\"btn btn-primary\">See Profile</a>";
+        echo "<a href=\"" . $y->detailLink . "\" class=\"btn btn-primary\">See Product</a>";
         echo "</div> </div>";
 
       }
