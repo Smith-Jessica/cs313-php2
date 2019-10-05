@@ -1,8 +1,3 @@
-<?php
-    include 'products.php';
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +16,9 @@
   <div class="container">
 
     <?php
+    
+    include 'products.php';
+
 for($x = 0; $x < Products::$count; $x++){
   //$y = new Product(); -- This is my backup plan if the below does not work. 
 //gonna try the below method first. See if it transfers over all of the Object info to $y
