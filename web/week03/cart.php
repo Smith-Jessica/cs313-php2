@@ -59,7 +59,7 @@ session_start();
 
 PUT the Total Here
 
-<button></button>
+<a href="browse.php" class="btn btn-primary">Continue Shopping</a> <a href="checkout.php" class="btn btn-success">Checkout</a> 
 
 
 </body>
