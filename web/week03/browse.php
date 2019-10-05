@@ -20,7 +20,9 @@
   //  $y = new Product();
   //  $y = Collection::$allProducts.getItem($x);
   $y = 2;
+  for($x = 0; $x < 5; $x++) {
     echo $y;
+  }
   //  echo var_dump($y);
 
     /*  for($x = 0; $x < Collection::$allProducts.length(); $x++){
