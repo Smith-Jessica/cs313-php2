@@ -1,14 +1,8 @@
 <?php
 // Start the session
 session_start();
-include 'navbar.php';
-include 'products.php';
-$allProducts = unserialize($_SESSION["allProducts"]);
-
-foreach($allProducts[0] as $key => $value) {
-    echo $value;
-}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +18,15 @@ foreach($allProducts[0] as $key => $value) {
 
 <body>
   <h1>Checkout Page</h1>
+  <?php
+include 'navbar.php';
+include 'products.php';
+$allProducts = unserialize($_SESSION["allProducts"]);
+
+foreach($allProducts[0] as $key => $value) {
+    echo $value;
+}
+?>
   <div class="container">
         <div class="row">
         <div class="col-sm-6 d-flex justify-content-center">
