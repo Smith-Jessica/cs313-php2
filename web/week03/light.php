@@ -19,14 +19,14 @@ session_start();
 <body>
   <h1>Checkout Page</h1>
   <?php
-include 'navbar.php';
-include 'products.php';
-$allProducts = unserialize($_SESSION["allProducts"]);
+        include 'navbar.php';
+      //  include 'products.php';
+        $allProducts = unserialize($_SESSION["allProducts"]);
 
-foreach($allProducts[0] as $key => $value) {
-    echo "$value";
-    echo "There had better be something above me";
-}
+        foreach($allProducts[0] as $key => $value) {
+            echo "$value";
+            echo "There had better be something above me";
+        }
 ?>
   <div class="container">
         <div class="row">
