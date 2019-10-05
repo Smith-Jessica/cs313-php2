@@ -90,26 +90,26 @@
         $allProducts->addItem(new Product(30, 'hub.jpg', "Google's Hub with Google Assistant will give you the control you want for your Smart Home", "Google Hub", 'hub.php'), 1);
         $allProducts->addItem(new Product(30, 'alexa.jpg', "Amazon Alexa gives you complete control. Better than our competitors, who will remain nameless *cough*Google*cough*", "Amazon Alexa", 'alexa.php'), 2);
   //  $y = new Product();
-    $y = Collection::$allProducts->getItem($x);
+    
  
   //  echo var_dump($y);
 
-    /*  for($x = 0; $x < Collection::$allProducts.length(); $x++){
+      for($x = 0; $x < $allProducts->length(); $x++){
         // will need a for loop to instantiate $y and then probably need to delete it at the end of each iteration -- This is my backup plan if the below does not work. 
         //$y = $allProducts[$x];
         //echo var_dump($y);
-        $y = new Product();
-        $y = Collection::$allProducts.getItem($x);
+        //$y = new Product();
+        $y = $allProducts->getItem($x);
 
-        echo "<div class=\"card\" style=\"width:400px\">" .
-            "<img class=\"card-img-top\" src= alt=\"Card image\" style=\"width:100%\">" .
-            "<div class=\"card-body\">" .
-              "<h4 class=\"card-title\">" . $y->title . "</h4>" .
-              "<p class=\"card-text\">" . $y->desc . "</p>" .
-              "<a href=\"" . $y->detailLink . "\" class=\"btn btn-primary\">See Profile</a>" .
-            "</div> </div>";
+        echo "<div class=\"card\" style=\"width:400px\">";
+        echo "<img class=\"card-img-top\" src= alt=\"Card image\" style=\"width:100%\">";
+        echo "<div class=\"card-body\">";
+        echo "<h4 class=\"card-title\">" . $y->title . "</h4>";
+        echo "<p class=\"card-text\">" . $y->desc . "</p>";
+        echo "<a href=\"" . $y->detailLink . "\" class=\"btn btn-primary\">See Profile</a>";
+        echo "</div> </div>";
 
-    echo <<<EOT 
+    /*echo <<<EOT 
         <div class="card" style="width:400px">
         <img class="card-img-top" src= alt="Card image" style="width:100%">
         <div class="card-body">
@@ -118,10 +118,10 @@
         <a href="$y->detailLink" class="btn btn-primary">See Profile</a>
         </div> 
         </div>
-    EOT;          
-          unset($y);
+    EOT;     */     
+        /*  unset($y);*/
       }
-      */
+
   ?>
   </div>
 </body>
