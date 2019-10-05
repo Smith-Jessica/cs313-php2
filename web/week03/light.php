@@ -24,7 +24,8 @@ include 'products.php';
 $allProducts = unserialize($_SESSION["allProducts"]);
 
 foreach($allProducts[0] as $key => $value) {
-    echo $value;
+    echo "$value";
+    echo "There had better be something above me";
 }
 ?>
   <div class="container">
