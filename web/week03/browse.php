@@ -14,12 +14,9 @@
 <body>
   <h1>Shop Here</h1>
   <div class="container">
-
     <?php
-    
     include 'products.php';
     include 'collections.php';
-
     $y = new Product();
     $y = Collection::$allProducts.getItem($x);
     echo $y;
@@ -27,20 +24,30 @@
 
       for($x = 0; $x < Collection::$allProducts.length(); $x++){
         // will need a for loop to instantiate $y and then probably need to delete it at the end of each iteration -- This is my backup plan if the below does not work. 
-      //gonna try the below method first. See if it transfers over all of the Object info to $y
         //$y = $allProducts[$x];
         //echo var_dump($y);
         $y = new Product();
         $y = Collection::$allProducts.getItem($x);
 
-        echo "<div class=\"card\" style=\"width:400px\">" .
+      /*  echo "<div class=\"card\" style=\"width:400px\">" .
             "<img class=\"card-img-top\" src= alt=\"Card image\" style=\"width:100%\">" .
             "<div class=\"card-body\">" .
               "<h4 class=\"card-title\">" . $y->title . "</h4>" .
               "<p class=\"card-text\">" . $y->desc . "</p>" .
               "<a href=\"" . $y->detailLink . "\" class=\"btn btn-primary\">See Profile</a>" .
             "</div> </div>";
-        unset($y);
+*/
+    echo <<<EOT 
+        <div class="card" style="width:400px">
+        <img class="card-img-top" src= alt="Card image" style="width:100%">
+        <div class="card-body">
+        <h4 class="card-title">$y->title</h4>
+        <p class="card-text">$y->desc</p>
+        <a href="$y->detailLink" class="btn btn-primary">See Profile</a>
+        </div> 
+        </div>
+    EOT;          
+          unset($y);
       }
       ini_set('display_errors', 1);
   ?>
