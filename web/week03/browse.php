@@ -15,8 +15,8 @@
   <h1>Shop Here</h1>
   <div class="container">
     <?php
-    require 'products.php';
-  //  include 'collections.php';
+    include 'products.php';
+    include 'collections.php';
   //  $y = new Product();
   //  $y = Collection::$allProducts.getItem($x);
   $y = 2;
