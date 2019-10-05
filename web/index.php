@@ -1,5 +1,5 @@
 <?php
-
+phpinfo();
 // Add path to countlog.txt file.
 $path = 'countlog.txt';
 
