@@ -50,14 +50,22 @@ session_start();
             echo "<td>1</td>";
             echo "<td>$y->price</td>";
             echo "</tr>";
+            
+            $total += $y->price;
+          //  $_SESSION[$y->title] = true;
+            $_SESSION["total"] = $total;
         }
       }
 ?>
 </tbody>
+<tfoot>
+    <tr>
+      <th colspan="3">Total :</th>
+      <td><?php echo $_SESSION["total"]; ?> </td>
+    </tr>
+   </tfoot>
 </table>
 </div>
-
-PUT the Total Here
 
 <a href="browse.php" class="btn btn-primary">Continue Shopping</a> <a href="checkout.php" class="btn btn-success">Checkout</a> 
 
