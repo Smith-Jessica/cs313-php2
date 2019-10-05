@@ -4,6 +4,10 @@ session_start();
 include 'navbar.php';
 include 'products.php';
 $allProducts = unserialize($_SESSION["allProducts"]);
+
+foreach($allProducts[0] as $key => $value) {
+    echo $value;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
