@@ -20,13 +20,16 @@ session_start();
   <h1>Checkout Page</h1>
   <?php
         include 'navbar.php';
-      //  include 'products.php';
-        $allProducts = unserialize($_SESSION["allProducts"]);
+        include 'products.php';
 
-        foreach($allProducts[0] as $key => $value) {
+        $_SESSION["allProducts"] = array();
+
+       // $allProducts = unserialize($_SESSION["allProducts"]);
+
+        /*foreach($allProducts[0] as $key => $value) {
             echo "$value";
             echo "There had better be something above me";
-        }
+        }*/
 ?>
   <div class="container">
         <div class="row">
@@ -35,13 +38,13 @@ session_start();
         <img class="card-img-top" src= <?php // include 'products.php'; $allProducts = unserialize($_SESSION["allProducts"]); echo $allProducts[0]->imagelink; ?> alt="Card image" style="width:100%">
         <div class="card-body">
         <h4 class="card-title"> <?php //include 'products.php'; $allProducts = unserialize($_SESSION["allProducts"]); echo $allProducts[0]->title; ?> </h4>
-        <p class="card-text"><?php //include 'products.php'; $allProducts = unserialize($_SESSION["allProducts"]); echo $allProducts[0]->desc; ?></p>
+        <p class="card-text"><?php  ?></p>
         <button onclick="addtoCart()" class="btn btn-primary">Add to Cart</button>
         </div> </div> </div>
   </div>
   <script>
     function addtoCart() {
-        <?php //include 'products.php'; $allProducts = unserialize($_SESSION["allProducts"]); $allProducts[0]->inCart = true; ?>
+        <?php array_push($_SESSION["allProducts"], 0); ?>
     }
   </script>
   </body>
