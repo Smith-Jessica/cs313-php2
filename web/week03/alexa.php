@@ -17,7 +17,7 @@ session_start();
 </head>
 
 <body>
-  <h1>Smart Light</h1>
+  <h1>Product Details</h1>
  
   <div class="container">
   <?php 
@@ -28,7 +28,7 @@ session_start();
         $allProducts->addItem(new Product(30, 'hub.jpg', "Google's Hub with Google Assistant will give you the control you want for your Smart Home", "Google Hub", 'hub.php'), 1);
         $allProducts->addItem(new Product(30, 'alexa.jpg', "Amazon Alexa gives you complete control. Better than our competitors, who will remain nameless *cough*Google*cough*", "Amazon Alexa", 'alexa.php'), 2);
    
-        $y = $allProducts->getItem(0);
+        $y = $allProducts->getItem(2);
 
         echo "<div class=\"container\">";
         echo "<div class=\"row\">";

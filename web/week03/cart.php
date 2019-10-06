@@ -17,7 +17,7 @@ session_start();
 </head>
 
 <body>
-  <h1>Checkout Page</h1>
+  <h1>Your Cart</h1>
   <div class="container">
     <table class="table">
         <thead>
