@@ -61,6 +61,7 @@ session_start();
                         echo "<td>$y->desc</td>";
                         echo "<td>1</td>";
                         echo "<td>$y->price</td>";
+                        echo "<td><a href=\"removefromcart.php?title=" . $y->title ."\" class=\"btn btn-primary\">Remove from Cart</a></td>";
                         echo "</tr>";
                         
                         $total += $y->price;
