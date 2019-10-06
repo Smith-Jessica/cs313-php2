@@ -45,20 +45,26 @@ session_start();
 
         if(isset($_SESSION["cart"])) {
 
-            for($x = 0; $x < $_SESSION["cart"]->count(); $x++){
-
+            for($x = 0; $x < $allProducts->length(); $x++){
                 $y = $allProducts->getItem($x);
 
-                echo "<tr>";
-                echo "<th scope=\"row\">$x</th>";
-                echo "<td>$y->title</td>";
-                echo "<td>$y->desc</td>";
-                echo "<td>1</td>";
-                echo "<td>$y->price</td>";
-                echo "</tr>";
+                for($z = 0; $z < $_SESSION["cart"]->count(); $z++) {
+                    
+                    if($_SESSION["cart"][$z] == $y->title) {
                 
-                $total += $y->price;
-                $_SESSION["total"] = $total;
+
+                        echo "<tr>";
+                        echo "<th scope=\"row\">$x</th>";
+                        echo "<td>$y->title</td>";
+                        echo "<td>$y->desc</td>";
+                        echo "<td>1</td>";
+                        echo "<td>$y->price</td>";
+                        echo "</tr>";
+                        
+                        $total += $y->price;
+                        $_SESSION["total"] = $total;
+                    }
+                }
             }
         }
         else {
