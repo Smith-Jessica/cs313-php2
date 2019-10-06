@@ -44,7 +44,7 @@ session_start();
   </div>
   <script>
     function addtoCart() {
-        <?php array_push($_SESSION["allProducts"], 0); ?>
+        <?php array_push($_SESSION["allProducts"], 0);  echo "success!"; ?>
     }
   </script>
   </body>
