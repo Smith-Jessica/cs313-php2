@@ -13,12 +13,10 @@ include 'products.php';
    
 $title = $_GET["title"];
 
-        if(isset($_SESSION["cart"])) {
             
             if (($key = array_search($title, $_SESSION["cart"])) !== false) {
                 unset($_SESSION["cart"][$key]); echo "<h1>The product has been removed from your cart!</h1>"; 
             }
-        }
         
 
 

@@ -71,7 +71,7 @@ session_start();
             }
         }
         else {
-            echo "There's nothing in your cart!";
+            echo "<h1>There's nothing in your cart!</h1>";
         }
 ?>
 </tbody>
