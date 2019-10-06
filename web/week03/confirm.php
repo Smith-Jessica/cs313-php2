@@ -83,13 +83,13 @@ $allProducts = new Collection();
 </div>
 <div class="container">
 <?php
-    $full_name = $_POST["full-name"];
-    $address_line1 = $_POST["address-line1"];
-    $address_line2 = $_POST["address-line2"];
-    $city = $_POST["city"];
-    $region = $_POST["region"];
-    $postal_code = $_POST["postal-code"];
-    $country = $_POST["country"];
+    $full_name = htmlspecialchars($_POST["full-name"]);
+    $address_line1 = htmlspecialchars($_POST["address-line1"]);
+    $address_line2 = htmlspecialchars($_POST["address-line2"]);
+    $city = htmlspecialchars($_POST["city"]);
+    $region = htmlspecialchars($_POST["region"]);
+    $postal_code = htmlspecialchars($_POST["postal-code"]);
+    $country = htmlspecialchars($_POST["country"]);
 
     echo "<div class=\"container-fluid\">";
     echo "<div class=\"row\">";
