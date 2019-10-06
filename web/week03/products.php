@@ -52,7 +52,6 @@ class Collection
     public $desc;
     public $title;
     public $detailLink;
-    public $inCart = false;
     public static $count=0;
 
     public function __construct($price, $imagelink, $desc, $title, $detailLink)
