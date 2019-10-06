@@ -14,11 +14,11 @@ include 'products.php';
 $title = $_GET["title"];
 
         if(isset($_SESSION["cart"])) {
-            array_push($_SESSION["cart"], $title);  echo "The product has been added!"; 
+            array_push($_SESSION["cart"], $title);  echo "<h1>The product has been added to your cart!</h1>"; 
         }
         else { 
             $_SESSION["cart"] = array($title); 
-            echo "The product has been added, but the array wasn't set!";
+            echo "<h1>The product has been added to your cart!</h1>";
         }
 
 

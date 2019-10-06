@@ -36,7 +36,7 @@ session_start();
         echo "<div class=\"card\" style=\"width:70rem\">";
         echo "<img class=\"card-img-top\" src=\"" . $y->imagelink . "\" alt=\"Card image\" style=\"width:100%\">";
         echo "<div class=\"card-body\">";
-        echo "<h4 class=\"card-title\">" . $y->price . "</h4>";
+        echo "<h4 class=\"card-title\">$" . $y->price . ".00</h4>";
         echo "<h4 class=\"card-title\">" . $y->title . "</h4>";
         echo "<p class=\"card-text\">" . $y->desc . "</p>";
         echo "<a href=\"addedtocart.php?title=" . $y->title ."\" class=\"btn btn-primary\">Add to Cart</a>";

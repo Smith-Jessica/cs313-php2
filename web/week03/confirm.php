@@ -83,9 +83,7 @@ $allProducts = new Collection();
 </div>
 <div class="container">
 <?php
-    echo "before we get the post variables";
     $full_name = $_POST["full-name"];
-    echo $full_name;
     $address_line1 = $_POST["address-line1"];
     $address_line2 = $_POST["address-line2"];
     $city = $_POST["city"];
