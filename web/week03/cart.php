@@ -33,7 +33,6 @@ session_start();
 
 <?php
     include 'products.php';
-    $allProducts = unserialize($_SESSION["allProducts"]);
 
     $allProducts = new Collection();
     
@@ -44,7 +43,7 @@ session_start();
       for($x = 0; $x < $allProducts->length(); $x++){
         $y = $allProducts->getItem($x);
 
-        if($_SESSION["allProducts"] == $y->title) {
+        if($_SESSION["cart"] == $y->title) {
             echo "<tr>";
             echo "<th scope=\"row\">$x</th>";
             echo "<td>$y->title</td>";
@@ -55,6 +54,9 @@ session_start();
             
             $total += $y->price;
             $_SESSION["total"] = $total;
+        }
+        else {
+            echo "There's nothing in your cart!";
         }
       }
 ?>
