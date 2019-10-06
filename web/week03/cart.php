@@ -40,25 +40,30 @@ session_start();
         $allProducts->addItem(new Product(30, 'hub.jpg', "Google's Hub with Google Assistant will give you the control you want for your Smart Home", "Google Hub", 'hub.php'), 1);
         $allProducts->addItem(new Product(30, 'alexa.jpg', "Amazon Alexa gives you complete control. Better than our competitors, who will remain nameless *cough*Google*cough*", "Amazon Alexa", 'alexa.php'), 2);
 
-      for($x = 0; $x < $_SESSION["cart"]->count(); $x++){
-        $y = $allProducts->getItem($x);
+      
 
-        if($_SESSION["cart"][$z] == $y->title) {
-            echo "<tr>";
-            echo "<th scope=\"row\">$x</th>";
-            echo "<td>$y->title</td>";
-            echo "<td>$y->desc</td>";
-            echo "<td>1</td>";
-            echo "<td>$y->price</td>";
-            echo "</tr>";
-            
-            $total += $y->price;
-            $_SESSION["total"] = $total;
+
+        if(isset($_SESSION["cart"])) {
+
+            for($x = 0; $x < $_SESSION["cart"]->count(); $x++){
+
+                $y = $allProducts->getItem($x);
+
+                echo "<tr>";
+                echo "<th scope=\"row\">$x</th>";
+                echo "<td>$y->title</td>";
+                echo "<td>$y->desc</td>";
+                echo "<td>1</td>";
+                echo "<td>$y->price</td>";
+                echo "</tr>";
+                
+                $total += $y->price;
+                $_SESSION["total"] = $total;
+            }
         }
         else {
             echo "There's nothing in your cart!";
         }
-      }
 ?>
 </tbody>
 <tfoot>
