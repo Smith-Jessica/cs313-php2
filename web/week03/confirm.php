@@ -80,8 +80,10 @@ $allProducts = new Collection();
 </tr>
 </tfoot>
 </table>
-<div class="container pull-right">
+</div>
+<div class="container">
 <?php
+    echo "before we get the post variables";
     $full_name = $_POST["full-name"];
     $address_line1 = $_POST["address-line1"];
     $address_line2 = $_POST["address-line2"];
