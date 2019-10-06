@@ -20,15 +20,27 @@ session_start();
   <h1>Checkout Page</h1>
  
   <div class="container">
-        <div class="row">
-        <div class="col-sm-6 d-flex justify-content-center">
-        <div class="card" style="width:70rem">
-        <img class="card-img-top" src= <?php // include 'products.php'; $allProducts = unserialize($_SESSION["allProducts"]); echo $allProducts[0]->imagelink; ?> alt="Card image" style="width:100%">
-        <div class="card-body">
-        <h4 class="card-title"> <?php //include 'products.php'; $allProducts = unserialize($_SESSION["allProducts"]); echo $allProducts[0]->title; ?> </h4>
-        <p class="card-text"><?php  ?></p>
-        <a href="addedtocart.php" class="btn btn-primary">Add to Cart</a>
-        </div> </div> </div>
+  <?php include 'products.php';
+        $allProducts = new Collection();
+    
+        $allProducts->addItem(new Product(20, 'light.jpg', "The best light for your new Smart Home!", "Smart Home Light", 'light.php'), 0);
+        $allProducts->addItem(new Product(30, 'hub.jpg', "Google's Hub with Google Assistant will give you the control you want for your Smart Home", "Google Hub", 'hub.php'), 1);
+        $allProducts->addItem(new Product(30, 'alexa.jpg', "Amazon Alexa gives you complete control. Better than our competitors, who will remain nameless *cough*Google*cough*", "Amazon Alexa", 'alexa.php'), 2);
+   
+        $y = $allProducts->getItem(0);
+
+        echo "<div class=\"container\">";
+        echo "<div class=\"row\">";
+        echo "<div class=\"col-sm-6 d-flex justify-content-center\">";
+        echo "<div class=\"card\" style=\"width:70rem\">";
+        echo "<img class=\"card-img-top\" src=\"" . $y->imagelink . "\" alt=\"Card image\" style=\"width:100%\">";
+        echo "<div class=\"card-body\">";
+        echo "<h4 class=\"card-title\">" . $y->price . "</h4>";
+        echo "<h4 class=\"card-title\">" . $y->title . "</h4>";
+        echo "<p class=\"card-text\">" . $y->desc . "</p>";
+        echo "<a href=\"addedtocart.php?title=" . $y->title ."\" class=\"btn btn-primary\">Add to Cart</a>";
+        echo "</div> </div> </div>";
+ ?>
   </div>
   </body>
   </html>

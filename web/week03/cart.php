@@ -43,7 +43,8 @@ session_start();
 
       for($x = 0; $x < $allProducts->length(); $x++){
         $y = $allProducts->getItem($x);
-        if($y->inCart) {
+
+        if($_SESSION["allProducts"] == $y->title) {
             echo "<tr>";
             echo "<th scope=\"row\">$x</th>";
             echo "<td>$y->title</td>";
@@ -53,7 +54,6 @@ session_start();
             echo "</tr>";
             
             $total += $y->price;
-          //  $_SESSION[$y->title] = true;
             $_SESSION["total"] = $total;
         }
       }
