@@ -18,7 +18,7 @@ session_start();
 
 <body>
   <h1>Product Details</h1>
- 
+  <?php include 'navbar.php';?>
   <div class="container">
   <?php 
         include 'products.php';

@@ -17,7 +17,8 @@ session_start();
 </head>
 
 <body>
-  <h1>Smart Light</h1>
+  <h1>Product Details</h1>
+  <?php include 'navbar.php';?>
  
   <div class="container">
   <?php 
