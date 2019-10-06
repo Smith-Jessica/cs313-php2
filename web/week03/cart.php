@@ -49,7 +49,7 @@ session_start();
             for($x = 0; $x < $allProducts->length(); $x++){
                 echo "in the first for loop";
                 $y = $allProducts->getItem($x);
-
+                echo "it's not the y var";
                 for($z = 0; $z < $_SESSION["cart"]->count(); $z++) {
                    echo "in the second for loop"; 
                     if($_SESSION["cart"][$z] == $y->title) {
