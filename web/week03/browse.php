@@ -21,16 +21,16 @@ session_start();
 include 'navbar.php';
 include 'products.php';
 
-        $allProducts = new Collection();
+        $allProducts = array(new Product(20, 'light.jpg', "The best light for your new Smart Home!", "Smart Home Light", 'light.php'), new Product(30, 'hub.jpg', "Google's Hub with Google Assistant will give you the control you want for your Smart Home", "Google Hub", 'hub.php'), new Product(30, 'alexa.jpg', "Amazon Alexa gives you complete control. Better than our competitors, who will remain nameless *cough*Google*cough*", "Amazon Alexa", 'alexa.php'));
     
-        $allProducts->addItem(new Product(20, 'light.jpg', "The best light for your new Smart Home!", "Smart Home Light", 'light.php'), 0);
+       /* $allProducts->addItem(new Product(20, 'light.jpg', "The best light for your new Smart Home!", "Smart Home Light", 'light.php'), 0);
         $allProducts->addItem(new Product(30, 'hub.jpg', "Google's Hub with Google Assistant will give you the control you want for your Smart Home", "Google Hub", 'hub.php'), 1);
         $allProducts->addItem(new Product(30, 'alexa.jpg', "Amazon Alexa gives you complete control. Better than our competitors, who will remain nameless *cough*Google*cough*", "Amazon Alexa", 'alexa.php'), 2);
-
+*/
       echo "$allProducts[0]->detailLink";
 
-      for($x = 0; $x < $allProducts->length(); $x++){
-        $y = $allProducts->getItem($x);
+      for($x = 0; $x < count($allProducts); $x++){
+        $y = $allProducts[$x];
 
         echo "<div class=\"container-fluid\">";
         echo "<div class=\"row\">";
