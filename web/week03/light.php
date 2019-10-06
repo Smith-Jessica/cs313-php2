@@ -20,7 +20,8 @@ session_start();
   <h1>Checkout Page</h1>
  
   <div class="container">
-  <?php include 'products.php';
+  <?php 
+        include 'products.php';
         $allProducts = new Collection();
     
         $allProducts->addItem(new Product(20, 'light.jpg', "The best light for your new Smart Home!", "Smart Home Light", 'light.php'), 0);
