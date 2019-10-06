@@ -15,7 +15,7 @@ session_start();
 </head>
 
 <body>
-  <h1>Shop Here</h1>
+  <h1>Lively Automation</h1>
   <div class="container-fluid">
 <?php
 
@@ -34,7 +34,7 @@ include 'products.php';
         echo "<div class=\"container-fluid\">";
         echo "<div class=\"row\">";
         echo "<div class=\"col-sm-6 d-flex justify-content-center\">";
-        echo "<div class=\"card\" style=\"width:25rem\">";
+        echo "<div class=\"card\" style=\"width:40rem\">";
         echo "<img class=\"card-img-top\" src=\"" . $y->imagelink . "\" alt=\"Card image\" style=\"width:100%\">";
         echo "<div class=\"card-body\">";
         echo "<h4 class=\"card-title\">" . $y->title . "</h4>";
