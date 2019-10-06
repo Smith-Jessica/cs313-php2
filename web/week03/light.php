@@ -27,7 +27,7 @@ session_start();
         <div class="card-body">
         <h4 class="card-title"> <?php //include 'products.php'; $allProducts = unserialize($_SESSION["allProducts"]); echo $allProducts[0]->title; ?> </h4>
         <p class="card-text"><?php  ?></p>
-        <button type="submit" action="addedtocart.php" class="btn btn-primary">Add to Cart</button>
+        <a href="addedtocart.php" class="btn btn-primary">Add to Cart</a>
         </div> </div> </div>
   </div>
   </body>
