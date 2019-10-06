@@ -16,10 +16,10 @@ for($x = 0; $x < $allProducts->length(); $x++){
     $y = $allProducts[$x];
     if($y->$title == $title) {
         if(isset($_SESSION["cart"])) {
-            array_push($_SESSION["cart"], $y);  echo "The product has been added!"; 
+            array_push($_SESSION["cart"], serialize($y));  echo "The product has been added!"; 
         }
         else { 
-            $_SESSION["cart"] = array($y); 
+            $_SESSION["cart"] = array(serialize($y)); 
             echo "The product has been added, but the array wasn't set!";
         }
     }
