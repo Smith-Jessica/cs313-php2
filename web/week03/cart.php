@@ -45,14 +45,16 @@ session_start();
 
         if(isset($_SESSION["cart"])) {
 
+            echo "session variable is set";
             for($x = 0; $x < $allProducts->length(); $x++){
+                echo "in the first for loop";
                 $y = $allProducts->getItem($x);
 
                 for($z = 0; $z < $_SESSION["cart"]->count(); $z++) {
-                    
+                   echo "in the second for loop"; 
                     if($_SESSION["cart"][$z] == $y->title) {
-                
-
+                        
+                        echo "whatever";
                         echo "<tr>";
                         echo "<th scope=\"row\">$x</th>";
                         echo "<td>$y->title</td>";
