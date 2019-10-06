@@ -40,10 +40,10 @@ session_start();
         $allProducts->addItem(new Product(30, 'hub.jpg', "Google's Hub with Google Assistant will give you the control you want for your Smart Home", "Google Hub", 'hub.php'), 1);
         $allProducts->addItem(new Product(30, 'alexa.jpg', "Amazon Alexa gives you complete control. Better than our competitors, who will remain nameless *cough*Google*cough*", "Amazon Alexa", 'alexa.php'), 2);
 
-      for($x = 0; $x < $allProducts->length(); $x++){
+      for($x = 0; $x < $_SESSION["cart"]->count(); $x++){
         $y = $allProducts->getItem($x);
 
-        if($_SESSION["cart"] == $y->title) {
+        if($_SESSION["cart"][$z] == $y->title) {
             echo "<tr>";
             echo "<th scope=\"row\">$x</th>";
             echo "<td>$y->title</td>";

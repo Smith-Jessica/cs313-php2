@@ -11,7 +11,7 @@ if(isset($_SESSION["cart"])) {
 }
 else { 
     $_SESSION["cart"] = array($title); 
-    echo "The product has been added!";
+    echo "The product has been added, but the array wasn't set!";
 }
 
 
