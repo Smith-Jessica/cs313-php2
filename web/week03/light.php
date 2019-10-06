@@ -18,19 +18,7 @@ session_start();
 
 <body>
   <h1>Checkout Page</h1>
-  <?php
-        include 'navbar.php';
-        include 'products.php';
-
-        $_SESSION["allProducts"] = array();
-
-       // $allProducts = unserialize($_SESSION["allProducts"]);
-
-        /*foreach($allProducts[0] as $key => $value) {
-            echo "$value";
-            echo "There had better be something above me";
-        }*/
-?>
+ 
   <div class="container">
         <div class="row">
         <div class="col-sm-6 d-flex justify-content-center">
@@ -39,13 +27,8 @@ session_start();
         <div class="card-body">
         <h4 class="card-title"> <?php //include 'products.php'; $allProducts = unserialize($_SESSION["allProducts"]); echo $allProducts[0]->title; ?> </h4>
         <p class="card-text"><?php  ?></p>
-        <button onclick="addtoCart()" class="btn btn-primary">Add to Cart</button>
+        <button type="submit" action="addedtocart.php" class="btn btn-primary">Add to Cart</button>
         </div> </div> </div>
   </div>
-  <script>
-    function addtoCart() {
-        <?php array_push($_SESSION["allProducts"], 0);  echo "success!"; ?>
-    }
-  </script>
   </body>
   </html>
