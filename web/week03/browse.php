@@ -27,7 +27,6 @@ include 'products.php';
         $allProducts->addItem(new Product(30, 'hub.jpg', "Google's Hub with Google Assistant will give you the control you want for your Smart Home", "Google Hub", 'hub.php'), 1);
         $allProducts->addItem(new Product(30, 'alexa.jpg', "Amazon Alexa gives you complete control. Better than our competitors, who will remain nameless *cough*Google*cough*", "Amazon Alexa", 'alexa.php'), 2);
 
-        $_SESSION["allProducts"] = serialize($allProducts);
 
       for($x = 0; $x < $allProducts->length(); $x++){
         $y = $allProducts->getItem($x);
@@ -40,7 +39,7 @@ include 'products.php';
         echo "<div class=\"card-body\">";
         echo "<h4 class=\"card-title\">" . $y->title . "</h4>";
         echo "<p class=\"card-text\">" . $y->desc . "</p>";
-        echo "<a href='$y->detailLink' class=\"btn btn-primary\">See Product</a>";
+        echo "<a href='".$y->detailLink."' class=\"btn btn-primary\">See Product</a>";
         echo "</div> </div> </div>";
 
       }
