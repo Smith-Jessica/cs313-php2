@@ -329,11 +329,12 @@ session_start();
                     </div>
                 </div>
             </fieldset>
+            <a href="browse.php" class="btn btn-primary">Return</a>  <button type="submit" href="confirm.php" class="btn btn-success">Submit</button> 
         </form>
 	</div>
 </div>
 
-<a href="browse.php" class="btn btn-primary">Return</a> <a href="confirm.php" class="btn btn-success">Continue</a> 
+
 <?php
     include 'products.php';
 
