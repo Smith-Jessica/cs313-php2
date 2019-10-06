@@ -18,28 +18,18 @@ session_start();
   <h1>Shop Here</h1>
   <div class="container-fluid">
 <?php
+
 include 'navbar.php';
 include 'products.php';
-
-        $light = new Product(20, 'light.jpg', "The best light for your new Smart Home!", "Smart Home Light", "light");
-        $hub = new Product(30, 'hub.jpg', "Google's Hub with Google Assistant will give you the control you want for your Smart Home", "Google Hub", 'hub.php');
-        $alexa = new Product(30, 'alexa.jpg', "Amazon Alexa gives you complete control. Better than our competitors, who will remain nameless *cough*Google*cough*", "Amazon Alexa", 'alexa.php');
-        $allProducts = array($light, $hub, $alexa);
+        $allProducts = new Collection();
     
-       /* $allProducts->addItem(new Product(20, 'light.jpg', "The best light for your new Smart Home!", "Smart Home Light", 'light.php'), 0);
+        $allProducts->addItem(new Product(20, 'light.jpg', "The best light for your new Smart Home!", "Smart Home Light", 'light.php'), 0);
         $allProducts->addItem(new Product(30, 'hub.jpg', "Google's Hub with Google Assistant will give you the control you want for your Smart Home", "Google Hub", 'hub.php'), 1);
         $allProducts->addItem(new Product(30, 'alexa.jpg', "Amazon Alexa gives you complete control. Better than our competitors, who will remain nameless *cough*Google*cough*", "Amazon Alexa", 'alexa.php'), 2);
-*/
-      echo $allProducts[0]->price;
-      echo $allProducts[0]->imagelink;
-      echo $allProducts[0]->title;
-      echo $allProducts[0]->desc;
-      echo $allProducts[0]->detailLink;
+        
 
-
-      for($x = 0; $x < count($allProducts); $x++){
-        $y = $allProducts[$x];
-
+      for($x = 0; $x < $allProducts->length(); $x++){
+        $y = $allProducts->getItem($x);
         echo "<div class=\"container-fluid\">";
         echo "<div class=\"row\">";
         echo "<div class=\"col-sm-6 d-flex justify-content-center\">";
@@ -48,9 +38,8 @@ include 'products.php';
         echo "<div class=\"card-body\">";
         echo "<h4 class=\"card-title\">" . $y->title . "</h4>";
         echo "<p class=\"card-text\">" . $y->desc . "</p>";
-        echo "<a href='".$y->detailLink."' class=\"btn btn-primary\">See Product</a>";
+        echo "<a href=\"$y->detailLink\" class=\"btn btn-primary\">See Product</a>";
         echo "</div> </div> </div>";
-
       }
 
   ?>

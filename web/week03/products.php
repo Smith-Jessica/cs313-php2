@@ -60,11 +60,10 @@ class Collection
         $this->imagelink= $imagelink;
         $this->desc= $desc;
         $this->title= $title;
-        $this->$detailLink = $detailLink;
+        $this->detailLink = $detailLink;
         Product::$count++;
         return true;
     }
 }
-
 
 ?>
