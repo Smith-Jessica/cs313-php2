@@ -12,21 +12,15 @@ include 'products.php';
         $allProducts->addItem(new Product(30, 'alexa.jpg', "Amazon Alexa gives you complete control. Better than our competitors, who will remain nameless *cough*Google*cough*", "Amazon Alexa", 'alexa.php'), 2);
    
 $title = $_GET["title"];
-for($x = 0; $x < $allProducts->length(); $x++){
-    $y = $allProducts[$x];
-    if($y->$title == $title) {
+
         if(isset($_SESSION["cart"])) {
-            array_push($_SESSION["cart"], serialize($y));  echo "The product has been added!"; 
+            array_push($_SESSION["cart"], $title);  echo "The product has been added!"; 
         }
         else { 
-            $_SESSION["cart"] = array(serialize($y)); 
+            $_SESSION["cart"] = array($title); 
             echo "The product has been added, but the array wasn't set!";
         }
-    }
-    else {
-        echo "could not find the product";
-    }
-}
+
 
 
 
