@@ -4,7 +4,7 @@ CREATE TABLE users (
     last_name   VARCHAR(20),
     username    VARCHAR(20),
     password    VARCHAR(20),
-    cart_id     INTEGER REFERENCES cart(id));
+    cart_id     INTEGER REFERENCES cart(id) ON UPDATE CASCADE ON DELETE CASCADE);
 
 CREATE TABLE cart (
     id          SERIAL PRIMARY KEY);
@@ -28,3 +28,8 @@ CREATE TABLE cart_product (
   amount     NUMERIC,
   CONSTRAINT cart_product_pkey PRIMARY KEY (cart_id, product_id)  -- explicit pk
 );
+
+INSERT INTO cart DEFAULT VALUES;
+INSERT INTO users VALUES(DEFAULT,'test', 'user', 'test', 'test', 1);
+INSERT INTO categories VALUES(DEFAULT,'Light', 'This is a category for everything lights') RETURNING id;
+INSERT INTO products VALUES(DEFAULT,'Light', 'This is a smart light', 'light.jpg', 30.00, 1);
