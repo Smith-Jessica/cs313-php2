@@ -30,9 +30,9 @@
 <div class="row p-5 mb-5">
   <a class="btn btn-primary col-8 col-sm-offset-3" href='/week03/browse.php'>Week03 Ponder Activity</a>
 </div>
-<!--<div class="row p-5 mb-5">
-  <a class="btn btn-primary col-8 col-sm-offset-3" href=''>Week04 Team Activity</a>
+<div class="row p-5 mb-5">
+  <a class="btn btn-primary col-8 col-sm-offset-3" href='/team05/week05.php'>Week05 Team Activity</a>
 </div>
--->
+
 </div>
 </body>
