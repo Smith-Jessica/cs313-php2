@@ -2,6 +2,8 @@
 // Start the session
 session_start();
 ?>
+<?php 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +20,38 @@ session_start();
   <h1>Lively Automation</h1>
   <div class="container-fluid">
 <?php
+
+try
+{
+  $dbUrl = getenv('DATABASE_URL');
+
+  $dbOpts = parse_url($dbUrl);
+
+  $dbHost = $dbOpts["host"];
+  $dbPort = $dbOpts["port"];
+  $dbUser = $dbOpts["user"];
+  $dbPassword = $dbOpts["pass"];
+  $dbName = ltrim($dbOpts["path"],'/');
+
+  $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+
+  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}
+catch (PDOException $ex)
+{
+  echo 'Error!: ' . $ex->getMessage();
+  die();
+}
+
+foreach ($db->query('SELECT * FROM products') as $row)
+{
+  $title =  $row['title'];
+  $desc = $row['description'];
+  $img = $row['image'];
+  $price = $row['price'];
+  $category = $row['category'];
+  echo '<br/>';
+}
 
 include 'navbar.php';
 include 'products.php';
