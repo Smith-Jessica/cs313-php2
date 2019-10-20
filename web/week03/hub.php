@@ -45,7 +45,7 @@ session_start();
             die();
           }
 
-        foreach ($db->query('SELECT * FROM products WHERE detail_pg == hub.php') as $row)
+        foreach ($db->query('SELECT * FROM products') as $row)
         {
           $title =  $row['title'];
           $desc = $row['description'];
