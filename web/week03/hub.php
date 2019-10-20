@@ -45,17 +45,6 @@ session_start();
             die();
           }
 
-        /*foreach ($db->query('SELECT * FROM products') as $row)
-        {
-          $title =  $row['title'];
-          $desc = $row['description'];
-          $img = $row['image'];
-          $price = $row['price'];
-          $category = $row['category'];
-          $detail_pg = $row['detail_pg'];
-         
-         // $allProducts->addItem(new Product($price, $img, $desc, $title, $detail_pg), $index);
-        }*/
         $detail_pg = 'hub.php';
         $stmt = $db->prepare("SELECT * FROM products WHERE detail_pg=:detail_pg");
         $stmt->execute(['detail_pg' => $detail_pg]); 
