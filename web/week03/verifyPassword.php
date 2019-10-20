@@ -49,6 +49,12 @@ session_start();
         if (password_verify( $_POST['password'], $user->password)) {
           $_SESSION['user_id'] = $user["id"];
         }
-        $message = "Success! You are logged in!";
-
+       
+        
+?>
+<?php 
+include 'navbar.php';
+if (isset($_SESSION['user_id'])) {
+    echo "Success! You are now logged in!";
+  }
 ?>
