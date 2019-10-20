@@ -61,7 +61,7 @@ session_start();
         $stmt->execute(['detail_pg' => $detail_pg]); 
         $product = $stmt->fetch();
 
-        echo $product->title;
+        echo $product;
 
         echo "<div class=\"container\">";
         echo "<div class=\"row\">";
