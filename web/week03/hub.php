@@ -66,7 +66,7 @@ session_start();
         echo "<div class=\"row\">";
         echo "<div class=\"col-sm-6 d-flex justify-content-center\">";
         echo "<div class=\"card\" style=\"width:70rem\">";
-        echo "<img class=\"card-img-top\" src=\"" . $product["img"] . "\" alt=\"Card image\" style=\"width:100%\">";
+        echo "<img class=\"card-img-top\" src=\"" . $product["image"] . "\" alt=\"Card image\" style=\"width:100%\">";
         echo "<div class=\"card-body\">";
         echo "<h4 class=\"card-title\">$" . $product["price"] . ".00</h4>";
         echo "<h4 class=\"card-title\">" . $product["title"] . "</h4>";
