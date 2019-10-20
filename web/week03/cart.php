@@ -11,7 +11,7 @@ if ( isset( $_SESSION['user_id'] ) ) {
   header("Location: https://floating-ocean-98131.herokuapp.com/week03/login.php");
 }
 ?>
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

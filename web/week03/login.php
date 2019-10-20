@@ -1,6 +1,42 @@
 <?php
 // Start the session
 session_start();
+
+try
+          {
+            $dbUrl = getenv('DATABASE_URL');
+
+            $dbOpts = parse_url($dbUrl);
+
+            $dbHost = $dbOpts["host"];
+            $dbPort = $dbOpts["port"];
+            $dbUser = $dbOpts["user"];
+            $dbPassword = $dbOpts["pass"];
+            $dbName = ltrim($dbOpts["path"],'/');
+
+            $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          }
+          catch (PDOException $ex)
+          {
+            echo 'Error!: ' . $ex->getMessage();
+            die();
+          }
+
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+  if(isset($_POST["username"]) && isset($_POST["password"])){
+        $stmt = $db->prepare("SELECT * FROM user WHERE username=:username");
+        $stmt->execute(['username' => $username]);
+        $user = $stmt->fetch();
+
+        // Verify user password and set $_SESSION
+        if ( password_verify( $_POST['password'], $user->password ) ) {
+          $_SESSION['user_id'] = $user->id;
+        }
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
