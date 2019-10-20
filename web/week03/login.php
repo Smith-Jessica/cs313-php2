@@ -1,8 +1,8 @@
 <?php
 // Start the session
 session_start();
-
-try
+if(isset($_POST['username']) && isset($_POST['password'])) {
+        try
           {
             $dbUrl = getenv('DATABASE_URL');
 
@@ -25,9 +25,9 @@ try
           }
 
         
-  if(isset($_POST["username"]) && isset($_POST["password"])){
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+  
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
         $stmt = $db->prepare("SELECT * FROM user WHERE username=:username");
         $stmt->execute(['username' => $username]);
