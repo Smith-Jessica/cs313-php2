@@ -62,7 +62,8 @@ session_start();
         $product = $stmt->fetch();
 
         for($i = 0; $i < 4; $i++){
-          echo $product[$i];
+          $arr = array_keys($product);
+          echo $arr[$i];
         }
         
 /*
