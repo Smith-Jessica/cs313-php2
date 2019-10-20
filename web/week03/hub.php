@@ -57,7 +57,7 @@ session_start();
          // $allProducts->addItem(new Product($price, $img, $desc, $title, $detail_pg), $index);
         }*/
         $detail_pg = 'hub.php';
-        $stmt = $pdo->prepare("SELECT * FROM products WHERE detail_pg=:detail_pg");
+        $stmt = $db->prepare("SELECT * FROM products WHERE detail_pg=:detail_pg");
         $stmt->execute(['detail_pg' => $detail_pg]); 
         $product = $stmt->fetch();
 
