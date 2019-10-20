@@ -60,11 +60,12 @@ session_start();
         $stmt = $db->prepare("SELECT * FROM products WHERE detail_pg=:detail_pg");
         $stmt->execute(['detail_pg' => $detail_pg]); 
         $product = $stmt->fetch();
-        for($i = 0; $i < $product.length(); $i++){
+
+        for($i = 0; $i < 4; $i++){
           echo $product[$i];
         }
         
-
+/*
         echo "<div class=\"container\">";
         echo "<div class=\"row\">";
         echo "<div class=\"col-sm-6 d-flex justify-content-center\">";
@@ -75,7 +76,7 @@ session_start();
         echo "<h4 class=\"card-title\">" . $title . "</h4>";
         echo "<p class=\"card-text\">" . $desc . "</p>";
         echo "<a href=\"addedtocart.php?title=" . $title ."\" class=\"btn btn-primary\">Add to Cart</a>";
-        echo "</div> </div> </div>";
+        echo "</div> </div> </div>";*/
  ?>
   </div>
   </body>
