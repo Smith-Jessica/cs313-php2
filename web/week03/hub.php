@@ -61,23 +61,18 @@ session_start();
         $stmt->execute(['detail_pg' => $detail_pg]); 
         $product = $stmt->fetch();
 
-        /*for($i = 0; $i < 4; $i++){
-          $arr = array_keys($product);
-          echo $arr[$i];
-        }*/
-        echo $product["id"];
-/*
+
         echo "<div class=\"container\">";
         echo "<div class=\"row\">";
         echo "<div class=\"col-sm-6 d-flex justify-content-center\">";
         echo "<div class=\"card\" style=\"width:70rem\">";
-        echo "<img class=\"card-img-top\" src=\"" . $img . "\" alt=\"Card image\" style=\"width:100%\">";
+        echo "<img class=\"card-img-top\" src=\"" . $product["img"] . "\" alt=\"Card image\" style=\"width:100%\">";
         echo "<div class=\"card-body\">";
-        echo "<h4 class=\"card-title\">$" . $price . ".00</h4>";
-        echo "<h4 class=\"card-title\">" . $title . "</h4>";
-        echo "<p class=\"card-text\">" . $desc . "</p>";
-        echo "<a href=\"addedtocart.php?title=" . $title ."\" class=\"btn btn-primary\">Add to Cart</a>";
-        echo "</div> </div> </div>";*/
+        echo "<h4 class=\"card-title\">$" . $product["price"] . ".00</h4>";
+        echo "<h4 class=\"card-title\">" . $product["title"] . "</h4>";
+        echo "<p class=\"card-text\">" . $product["desc"] . "</p>";
+        echo "<a href=\"addedtocart.php?title=" . $product["title"] ."\" class=\"btn btn-primary\">Add to Cart</a>";
+        echo "</div> </div> </div>";
  ?>
   </div>
   </body>
