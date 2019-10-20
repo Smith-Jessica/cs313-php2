@@ -57,4 +57,7 @@ include 'navbar.php';
 if (isset($_SESSION['user_id'])) {
     echo "Success! You are now logged in!";
   }
+  else {
+      echo "the session variable was not set. I'm sorry.";
+  }
 ?>
