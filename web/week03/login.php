@@ -20,7 +20,18 @@ session_start();
 <?php include 'navbar.php'; ?>
 
 <form action="" method="post">
-    <input type="text" name="username" placeholder="Enter your username" required>
-    <input type="password" name="password" placeholder="Enter your password" required>
-    <input type="submit" value="Submit">
+<div class="form-group row">
+<label for="inputUsername" class="col-sm-2 col-form-label">Username</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="username" id="inputUsername" placeholder="username" required>
+      </div>
+</div>
+<div class="form-group row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" name="password" id="inputPassword" placeholder="Password" required>
+    </div>
+</div>
+
+    <button class="btn btn-primary" type="submit" value="Submit">
 </form>
