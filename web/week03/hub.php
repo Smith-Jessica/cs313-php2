@@ -22,17 +22,7 @@ session_start();
   <div class="container">
   <?php 
         include 'products.php';
-       /* foreach ($db->query('SELECT * FROM products WHERE detail_pg == hub.php') as $row)
-        {
-          $title =  $row['title'];
-          $desc = $row['description'];
-          $img = $row['image'];
-          $price = $row['price'];
-          $category = $row['category'];
-          $detail_pg = $row['detail_pg'];
-
-         // $allProducts->addItem(new Product($price, $img, $desc, $title, $detail_pg), $index);
-        }*/
+       
         try
           {
             $dbUrl = getenv('DATABASE_URL');
@@ -54,16 +44,17 @@ session_start();
             echo 'Error!: ' . $ex->getMessage();
             die();
           }
-        $db = pg_query('SELECT * FROM products WHERE detail_pg == hub.php');
+          
+        foreach ($db->query('SELECT * FROM products WHERE detail_pg == hub.php') as $row)
+        {
+          $title =  $row['title'];
+          $desc = $row['description'];
+          $img = $row['image'];
+          $price = $row['price'];
+          $category = $row['category'];
+          $detail_pg = $row['detail_pg'];
 
-
-        while ($data = pg_fetch_object($db)) {
-          echo $data->title;
-          echo $data->desc;
-          echo $data->img;
-          echo $data->price;
-          echo $data->category;
-          echo $data->detail_pg;
+         // $allProducts->addItem(new Product($price, $img, $desc, $title, $detail_pg), $index);
         }
 
         echo "<div class=\"container\">";
