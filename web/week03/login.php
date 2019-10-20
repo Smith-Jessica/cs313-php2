@@ -33,5 +33,5 @@ session_start();
     </div>
 </div>
 
-    <button class="btn btn-primary" type="submit" value="Submit">
+    <button class="btn btn-primary col-sm-5" type="submit" value="Submit">
 </form>
