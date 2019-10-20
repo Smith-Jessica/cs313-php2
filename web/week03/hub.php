@@ -60,8 +60,10 @@ session_start();
         $stmt = $db->prepare("SELECT * FROM products WHERE detail_pg=:detail_pg");
         $stmt->execute(['detail_pg' => $detail_pg]); 
         $product = $stmt->fetch();
-
-        echo $product[0];
+        for($i = 0; $i < $product.length(); $i++){
+          echo $product[$i];
+        }
+        
 
         echo "<div class=\"container\">";
         echo "<div class=\"row\">";
