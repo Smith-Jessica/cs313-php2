@@ -23,20 +23,33 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
             echo 'Error!: ' . $ex->getMessage();
             die();
           }
-
-        
-  
+/*
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-        $stmt = $db->prepare("SELECT * FROM user WHERE username=:username");
-        $stmt->execute(['username' => $username]);
-        $user = $stmt->fetch();
+    $con = new mysqli($db_host, $db_user, $db_pass, $db_name);
+    $stmt = $con->prepare("SELECT * FROM users WHERE username = ?");
+    
+    $stmt->execute();
+    $result = $stmt->get_result();
+  $user = $result->fetch_object();
+  
+*/
+        $stmt = $db->prepare("SELECT * FROM user WHERE username= ?");
+        //$stmt->execute(['username' => $username]);
+        $stmt->bind_param('s', $_POST['username']);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $user = $result->fetch_object();
 
         // Verify user password and set $_SESSION
         if ( password_verify( $_POST['password'], $user->password ) ) {
           $_SESSION['user_id'] = $user->id;
         }
+        $message = "Success! You are logged in!";
+    }
+    else {
+      $message = "Could not verify your username and password. Please try again.";
     }
 
 ?>
@@ -73,3 +86,6 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 
     <button class="btn btn-primary col-sm-5" type="submit" value="Submit">
 </form>
+</div>
+<div><?php echo $message ?></div>
+</body>
