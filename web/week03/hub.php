@@ -65,7 +65,7 @@ session_start();
           $arr = array_keys($product);
           echo $arr[$i];
         }*/
-        echo $product->title;
+        echo $product->$title;
 /*
         echo "<div class=\"container\">";
         echo "<div class=\"row\">";
