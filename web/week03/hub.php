@@ -61,11 +61,11 @@ session_start();
         $stmt->execute(['detail_pg' => $detail_pg]); 
         $product = $stmt->fetch();
 
-        for($i = 0; $i < 4; $i++){
+        /*for($i = 0; $i < 4; $i++){
           $arr = array_keys($product);
           echo $arr[$i];
-        }
-        
+        }*/
+        echo $product->title;
 /*
         echo "<div class=\"container\">";
         echo "<div class=\"row\">";
