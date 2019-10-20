@@ -1,7 +1,7 @@
 <?php
 // Start the session
 session_start();
-if(isset($_POST['username']) && isset($_POST['password'])) {
+/*if(isset($_POST['username']) && isset($_POST['password'])) {
         try
           {
             $dbUrl = getenv('DATABASE_URL');
@@ -23,7 +23,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
             echo 'Error!: ' . $ex->getMessage();
             die();
           }
-/*
+
     $username = $_POST['username'];
     $password = $_POST['password'];
 
@@ -34,7 +34,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
     $result = $stmt->get_result();
   $user = $result->fetch_object();
   
-*/
+
         $stmt = $db->prepare("SELECT * FROM user WHERE username= ?");
         //$stmt->execute(['username' => $username]);
         $stmt->bind_param('s', $_POST['username']);
@@ -51,7 +51,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
     else {
       $message = "Could not verify your username and password. Please try again.";
     }
-
+*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,7 +70,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
   <div class="container-fluid">
 <?php include 'navbar.php'; ?>
 
-<form action="" method="post">
+<form action="verifyPassword.php" method="post">
 <div class="form-group row">
 <label for="inputUsername" class="col-sm-2 col-form-label">Username</label>
     <div class="col-sm-10">
@@ -87,5 +87,5 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
     <button class="btn btn-primary col-sm-5" type="submit" value="Submit">
 </form>
 </div>
-<div><?php echo $message ?></div>
+<div><?php //echo $message ?></div>
 </body>
