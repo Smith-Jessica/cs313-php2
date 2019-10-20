@@ -37,7 +37,7 @@ session_start();
 */
         $username = $_POST['username'];
         
-        $stmt = $db->prepare("SELECT * FROM user WHERE username= ?");
+        $stmt = $db->prepare("SELECT * FROM user WHERE username=:username");
         $stmt->execute(['username' => $username]);
         //$stmt->bind_param('s', $_POST['username']);
         //$stmt->execute();
@@ -46,7 +46,7 @@ session_start();
         $user = $stmt->fetch();
 
         // Verify user password and set $_SESSION
-        if (password_verify( $_POST['password'], $user->password)) {
+        if (password_verify( $_POST['password'], $user["password"])) {
           $_SESSION['user_id'] = $user["id"];
         }
        

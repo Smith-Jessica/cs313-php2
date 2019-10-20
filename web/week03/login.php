@@ -70,7 +70,7 @@ session_start();
   <div class="container-fluid">
 <?php include 'navbar.php'; ?>
 
-<form action="verifyPassword.php" method="post">
+<form action="verifyPassword.php" method="POST">
 <div class="form-group row">
 <label for="inputUsername" class="col-sm-2 col-form-label">Username</label>
     <div class="col-sm-10">
