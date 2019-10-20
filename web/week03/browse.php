@@ -2,8 +2,6 @@
 // Start the session
 session_start();
 ?>
-<?php 
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,6 +41,11 @@ catch (PDOException $ex)
   die();
 }
 
+include 'navbar.php';
+include 'products.php';
+
+$allProducts = new Collection();
+
 foreach ($db->query('SELECT * FROM products') as $row)
 {
   $title =  $row['title'];
@@ -54,15 +57,6 @@ foreach ($db->query('SELECT * FROM products') as $row)
 
   $allProducts->addItem(new Product($price, $img, $desc, $title, $detail_pg), $index);
 }
-
-include 'navbar.php';
-include 'products.php';
-        $allProducts = new Collection();
-    
-        $allProducts->addItem(new Product($price, $img, $desc, $title, 'light.php'), 0);
-        $allProducts->addItem(new Product(30, 'hub.jpg', "Google's Hub with Google Assistant will give you the control you want for your Smart Home", "Google Hub", 'hub.php'), 1);
-        $allProducts->addItem(new Product(30, 'alexa.jpg', "Amazon Alexa gives you complete control. Better than our competitors, who will remain nameless *cough*Google*cough*", "Amazon Alexa", 'alexa.php'), 2);
-        
         $_SESSION["allProducts"] = serialize($allProducts);
 
       for($x = 0; $x < $allProducts->length(); $x++){
