@@ -22,7 +22,7 @@ session_start();
   <div class="container">
   <?php 
         include 'products.php';
-        foreach ($db->query('SELECT * FROM products WHERE detail_pg == hub.php') as $row)
+       /* foreach ($db->query('SELECT * FROM products WHERE detail_pg == hub.php') as $row)
         {
           $title =  $row['title'];
           $desc = $row['description'];
@@ -32,8 +32,39 @@ session_start();
           $detail_pg = $row['detail_pg'];
 
          // $allProducts->addItem(new Product($price, $img, $desc, $title, $detail_pg), $index);
+        }*/
+        try
+          {
+            $dbUrl = getenv('DATABASE_URL');
+
+            $dbOpts = parse_url($dbUrl);
+
+            $dbHost = $dbOpts["host"];
+            $dbPort = $dbOpts["port"];
+            $dbUser = $dbOpts["user"];
+            $dbPassword = $dbOpts["pass"];
+            $dbName = ltrim($dbOpts["path"],'/');
+
+            $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          }
+          catch (PDOException $ex)
+          {
+            echo 'Error!: ' . $ex->getMessage();
+            die();
+          }
+        $db = pg_query('SELECT * FROM products WHERE detail_pg == hub.php');
+
+
+        while ($data = pg_fetch_object($db)) {
+          echo $data->title;
+          echo $data->desc;
+          echo $data->img;
+          echo $data->price;
+          echo $data->category;
+          echo $data->detail_pg;
         }
-        
 
         echo "<div class=\"container\">";
         echo "<div class=\"row\">";
