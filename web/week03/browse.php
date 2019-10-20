@@ -17,7 +17,7 @@ session_start();
 <body>
   <h1>Lively Automation</h1>
   <div class="container-fluid">
-  <a class="btn btn-success" href="login.php">Login</a>
+  
 <?php
 include 'navbar.php';
 ?>
