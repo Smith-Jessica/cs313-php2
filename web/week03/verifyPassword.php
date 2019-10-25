@@ -37,9 +37,7 @@ session_start();
 */
         $username = $_POST['username'];
         
-        
-
-        $result = $db->query("SELECT * FROM user WHERE username=:username");
+        $result = $db->query("SELECT * FROM user WHERE username IS :username");
           //echo $result;
         //$stmt = $db->prepare("SELECT * FROM user WHERE username=:username");
         //$stmt->execute(['username' => $username]);
