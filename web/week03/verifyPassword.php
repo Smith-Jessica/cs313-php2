@@ -40,7 +40,7 @@ session_start();
         //$result = $db->query("SELECT * FROM user");
         $username = $_POST['username'];
         $result = $db->prepare("SELECT username FROM users WHERE username = ':username';");
-        echo $result;
+        
 
 
           //echo $result;
