@@ -38,7 +38,7 @@ session_start();
         $username = $_POST['username'];
         
         
-        foreach ($db->query("SELECT * FROM user WHERE username=:username") as $row)
+        foreach ($db->query('SELECT * FROM user WHERE username=:username') as $row)
         {
           $username =  $row['username'];
           $password = $row['password'];
