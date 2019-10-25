@@ -36,19 +36,19 @@ session_start();
   
 */
         $username = $_POST['username'];
-        
-        $stmt = $db->prepare("SELECT * FROM user WHERE username=:username");
-        $stmt->execute(['username' => $username]);
+        echo $username;
+        //$stmt = $db->prepare("SELECT * FROM user WHERE username=:username");
+        //$stmt->execute(['username' => $username]);
         //$stmt->bind_param('s', $_POST['username']);
         //$stmt->execute();
         //$result = $stmt->get_result();
         //$user = $result->fetch_object();
-        $user = $stmt->fetch();
+       // $user = $stmt->fetch();
 
         // Verify user password and set $_SESSION
-        if (password_verify( $_POST['password'], $user["password"])) {
-          $_SESSION['user_id'] = $user["id"];
-        }
+        //if (password_verify( $_POST['password'], $user["password"])) {
+        //  $_SESSION['user_id'] = $user["id"];
+       // }
        
         
 ?>
