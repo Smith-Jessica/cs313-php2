@@ -39,8 +39,8 @@ session_start();
         
         
 
-        echo $db->query("SELECT * FROM user WHERE username=:username");
-        
+        //echo $db->query("SELECT * FROM user WHERE username=:username");
+
         //$stmt = $db->prepare("SELECT * FROM user WHERE username=:username");
         //$stmt->execute(['username' => $username]);
         //$stmt->bind_param('s', $_POST['username']);
