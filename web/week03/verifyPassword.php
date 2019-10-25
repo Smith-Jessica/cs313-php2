@@ -38,6 +38,19 @@ session_start();
         $username = $_POST['username'];
         
         $result = $db->query("SELECT * FROM user");
+
+        $result = $db->prepare('SELECT username FROM user WHERE username = :username ');
+        if($result->execute(['username'=>$username])){
+          $res=$result->fetch(PDO::FETCH_ASSOC);
+          //do another stuff there
+          echo "success, I think";
+        } else {
+          //Query failed handle error
+          echo "query failed";
+        }
+
+
+
           //echo $result;
         //$stmt = $db->prepare("SELECT * FROM user WHERE username=:username");
         //$stmt->execute(['username' => $username]);
