@@ -94,10 +94,10 @@ foreach ($db->query('SELECT * FROM products') as $row)
               //$rows = $result->fetch(PDO::FETCH_ASSOC);
 
               while($rows = $result->fetch()) {
-                echo $rows['id'];
+                echo $rows['product_id'];
                 for($i = 0; $i < $allProducts->length(); $i++){
                  $y = $allProducts->getItem($i);  
-                 if($y->id == $rows['id']) {
+                 if($y->id == $rows['product_id']) {
                              echo "<tr>";
                              echo "<th scope=\"row\">$i</th>";
                              echo "<td>$y->title</td>";
@@ -113,7 +113,7 @@ foreach ($db->query('SELECT * FROM products') as $row)
                  else {
                    echo "the id does not match\n";
                    echo $y->id;
-                   echo $rows['id'];
+                   echo $rows['product_id'];
                  }
                 }
                }
