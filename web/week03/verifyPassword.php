@@ -44,13 +44,11 @@ session_start();
 
         //$result = $db->prepare("SELECT username FROM users WHERE username = ':username';");
         try {   
-          $sql = "SELECT username, password FROM users WHERE username = :user AND password = :pass";
-          $result = $db->prepare($sql);
+          $result = $db->prepare("SELECT username, password FROM users WHERE username = :user AND password = :pass");
           $result->bindParam(':user', $username);
           $result->bindParam(':pass', $pass);
           $result->execute();
           $rows = $result->fetch(PDO::FETCH_NUM);
-
       }
 
       catch (Exception $e) {
