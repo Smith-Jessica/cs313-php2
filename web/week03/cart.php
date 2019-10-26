@@ -69,6 +69,7 @@ catch (PDOException $ex)
 include 'products.php';
 
 $allProducts = new Collection();
+$index = 0;
 
 foreach ($db->query('SELECT * FROM products') as $row)
 {
@@ -79,40 +80,50 @@ foreach ($db->query('SELECT * FROM products') as $row)
   $category = $row['category'];
   $detail_pg = $row['detail_pg'];
   $id = $row['id'];
+
   $allProducts->addItem(new Product($price, $img, $desc, $title, $detail_pg, $id), $index);
+  $index++;
 }
         if(isset($_SESSION["cart"])) { //if the user is logged in
           //get the all product ids where the cart $id == $_SESSION['cart]
+          echo "the session cart is set, going to get the data from db\n";
             try {   
               $result = $db->prepare("SELECT product_id FROM orders WHERE cart_id = :cartid");
               $result->bindParam('cartid', $_SESSION['cart']);
               $result->execute();
               //$rows = $result->fetch(PDO::FETCH_ASSOC);
+
+              while($rows = $result->fetch()) {
+                echo $rows['id'];
+                for($i = 0; $i < $allProducts->length(); $i++){
+                 $y = $allProducts->getItem($i);  
+                 if($y->id == $rows['id']) {
+                             echo "<tr>";
+                             echo "<th scope=\"row\">$i</th>";
+                             echo "<td>$y->title</td>";
+                             echo "<td>$y->desc</td>";
+                             echo "<td>1</td>"; //quantity goes here
+                             echo "<td>$y->price</td>";
+                             echo "<td><a href=\"removefromcart.php?title=" . $y->title ."\" class=\"btn btn-primary\">Remove from Cart</a></td>";
+                             echo "</tr>";
+                             
+                             $total += $y->price;
+                             $_SESSION["total"] = $total;
+                 }
+                 else {
+                   echo "the id does not match\n";
+                 }
+                }
+               }
+
             }
           catch (Exception $e) {
               echo "Could not retrieve data from database". $e->getMessage();
               exit();
           }
+         
           //loop through the product ids and where they match the product ids of each $allProduct index show them in the table
-          while($rows = $result->fetch()) {
-           echo $rows['id'];
-           for($i = 0; $i < $allProducts->length(); $i++){
-            $y = $allProducts->getItem($i);  
-            if($y->id == $rows['id']) {
-                        echo "<tr>";
-                        echo "<th scope=\"row\">$i</th>";
-                        echo "<td>$y->title</td>";
-                        echo "<td>$y->desc</td>";
-                        echo "<td>1</td>"; //quantity goes here
-                        echo "<td>$y->price</td>";
-                        echo "<td><a href=\"removefromcart.php?title=" . $y->title ."\" class=\"btn btn-primary\">Remove from Cart</a></td>";
-                        echo "</tr>";
-                        
-                        $total += $y->price;
-                        $_SESSION["total"] = $total;
-            }
-           }
-          }
+         
 
 
 /*
