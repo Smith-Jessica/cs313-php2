@@ -41,10 +41,10 @@ session_start();
         $username = $_POST['username'];
         $pass = $_POST['password'];
 
-        $result = $db->prepare("SELECT username FROM users WHERE username = ':username';");
+        //$result = $db->prepare("SELECT username FROM users WHERE username = ':username';");
         try {   
 
-          $result = $db->prepare("SELECT * FROM users WHERE username = :user AND password = :pass");
+          $result = $db->prepare("SELECT username, password FROM users WHERE username = :user AND password = :pass;");
           $result->bindParam(':user', $username);
           $result->bindParam(':pass', $pass);
           $result->execute();
