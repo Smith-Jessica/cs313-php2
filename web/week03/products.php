@@ -52,16 +52,18 @@ class Collection
     public $desc;
     public $title;
     public $detailLink;
+    public $id;
     public $inCart = false;
     public static $count=0;
 
-    public function __construct($price, $imagelink, $desc, $title, $detailLink)
+    public function __construct($price, $imagelink, $desc, $title, $detailLink, $id)
     {
         $this->price= $price;
         $this->imagelink= $imagelink;
         $this->desc= $desc;
         $this->title= $title;
         $this->detailLink = $detailLink;
+        $this->id = $id;
         Product::$count++;
         return true;
     }
