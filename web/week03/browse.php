@@ -60,7 +60,6 @@ foreach ($db->query('SELECT * FROM products') as $row)
 
   $allProducts->addItem(new Product($price, $img, $desc, $title, $detail_pg), $index);
 }
-        $_SESSION["allProducts"] = serialize($allProducts);
 
       for($x = 0; $x < $allProducts->length(); $x++){
         $y = $allProducts->getItem($x);

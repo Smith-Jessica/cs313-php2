@@ -10,22 +10,64 @@ if (isset($_SESSION['username'])) {
   }
 
 include 'navbar.php';
+try
+{
+  $dbUrl = getenv('DATABASE_URL');
+
+  $dbOpts = parse_url($dbUrl);
+
+  $dbHost = $dbOpts["host"];
+  $dbPort = $dbOpts["port"];
+  $dbUser = $dbOpts["user"];
+  $dbPassword = $dbOpts["pass"];
+  $dbName = ltrim($dbOpts["path"],'/');
+
+  $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+
+  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}
+catch (PDOException $ex)
+{
+  echo 'Error!: ' . $ex->getMessage();
+  die();
+}
+
+
 include 'products.php';
 
-        $allProducts = new Collection();
-    
-        $allProducts->addItem(new Product(20, 'light.jpg', "The best light for your new Smart Home!", "Smart Home Light", 'light.php'), 0);
-        $allProducts->addItem(new Product(30, 'hub.jpg', "Google's Hub with Google Assistant will give you the control you want for your Smart Home", "Google Hub", 'hub.php'), 1);
-        $allProducts->addItem(new Product(30, 'alexa.jpg', "Amazon Alexa gives you complete control. Better than our competitors, who will remain nameless *cough*Google*cough*", "Amazon Alexa", 'alexa.php'), 2);
-   
-$title = $_GET["title"];
+$allProducts = new Collection();
 
-        if(isset($_SESSION["cart"])) {
-            array_push($_SESSION["cart"], $title);  echo "<h1>The product has been added to your cart!</h1>"; 
+foreach ($db->query('SELECT id FROM products') as $row)
+{
+ $id = $row;
+}
+
+$title = $_GET["title"];
+$qty = 1;
+
+        if(isset($_SESSION['cart'])) {
+          //add the product id to the cart table
+          //cart_id | product_id | amount
+          try {   
+            $result = $db->prepare("INSERT INTO cart_product VALUES (:cart,:product,:qty);");
+            $result->bindParam('cart', $_SESSION['cart']);
+            $result->bindParam('product', $id);
+            $result->bindParam('qty', $qty);
+            $result->execute();
+            $rows = $result->fetch(PDO::FETCH_ASSOC);
         }
+  
+        catch (Exception $e) {
+            echo "Could not retrieve data from database". $e->getMessage();
+            exit();
+        }
+             
+            echo "<h1>The product has been added to your cart!</h1>"; 
+            echo $rows['product'];
+      }
         else { 
-            $_SESSION["cart"] = array($title); 
-            echo "<h1>The product has been added to your cart!</h1>";
+            echo "There was an error adding the product to your cart";
+            
         }
 
 
