@@ -41,9 +41,10 @@ $allProducts = new Collection();
 $result = $db->prepare('SELECT id FROM products WHERE title = :title');
 $result->bindParam('title',$_GET["title"]);
 $result->execute();
-foreach ($result->fetch(PDO::FETCH_ASSOC) as $row)
+foreach ($result->fetch() as $row)
 {
  $id = $row['id'];
+ echo $id;
 }
 
 
