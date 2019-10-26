@@ -29,7 +29,7 @@ session_start();
 
 
      try {   
-          $result = $db->prepare("SELECT password FROM users WHERE username = :user AND password = :pass");
+          $result = $db->prepare("SELECT password, cart_id FROM users WHERE username = :user AND password = :pass");
           $result->bindParam('user', $username);
           $result->bindParam('pass', $pass);
           $result->execute();
@@ -43,6 +43,7 @@ session_start();
 
       if ($pass == $rows['password']) {
         $_SESSION['username'] = $username;
+        $_SESSION['cart'] = $rows['cart_id'];
     } else {
         echo "Username or password incorrect";
     }
