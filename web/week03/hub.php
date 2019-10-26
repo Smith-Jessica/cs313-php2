@@ -60,7 +60,7 @@ session_start();
         echo "<h4 class=\"card-title\">$" . $product["price"] . ".00</h4>";
         echo "<h4 class=\"card-title\">" . $product["title"] . "</h4>";
         echo "<p class=\"card-text\">" . $product["desc"] . "</p>";
-        echo "<a href=\"addedtocart.php?title=" . $product["id"] ."\" class=\"btn btn-primary\">Add to Cart</a>";
+        echo "<a href=\"addedtocart.php?id=" . $product["id"] ."\" class=\"btn btn-primary\">Add to Cart</a>";
         echo "</div> </div> </div>";
  ?>
   </div>
