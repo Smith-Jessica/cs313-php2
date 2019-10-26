@@ -46,7 +46,7 @@ session_start();
 
           $result = $db->prepare("SELECT * FROM users WHERE username = :user AND password = :pass");
           $result->bindParam(':user', $username);
-          $result->bindParam(':password', $pass);
+          $result->bindParam(':pass', $pass);
           $result->execute();
           $rows = $result->fetch(PDO::FETCH_NUM);
       }
