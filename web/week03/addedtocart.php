@@ -32,22 +32,12 @@ catch (PDOException $ex)
   die();
 }
 
-$title = $_GET["title"];
-$qty = 1;
 
 include 'products.php';
 
 $allProducts = new Collection();
-$result = $db->prepare('SELECT id FROM products WHERE title = :title');
-$result->bindParam('title',$_GET["title"]);
-$result->execute();
-foreach ($result->fetch() as $row)
-{
- $id = $row['id'];
- echo $id;
-}
-
-
+$id = $_GET["id"];
+$qty = 1;
 
         if(isset($_SESSION['cart'])) {
           //add the product id to the orders table
