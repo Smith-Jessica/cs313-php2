@@ -57,8 +57,9 @@ foreach ($db->query('SELECT * FROM products') as $row)
   $price = $row['price'];
   $category = $row['category'];
   $detail_pg = $row['detail_pg'];
+  $id = $row['id'];
 
-  $allProducts->addItem(new Product($price, $img, $desc, $title, $detail_pg), $index);
+  $allProducts->addItem(new Product($price, $img, $desc, $title, $detail_pg, $id), $index);
 }
 
       for($x = 0; $x < $allProducts->length(); $x++){
