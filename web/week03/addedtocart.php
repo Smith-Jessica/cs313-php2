@@ -46,10 +46,10 @@ $title = $_GET["title"];
 $qty = 1;
 
         if(isset($_SESSION['cart'])) {
-          //add the product id to the cart table
-          //cart_id | product_id | amount
+          //add the product id to the orders table
+          //order_id | cart_id | product_id | amount
           try {   
-            $result = $db->prepare("INSERT INTO cart_product VALUES (:cart,:product,:qty)");
+            $result = $db->prepare("INSERT INTO orders(cart_id,product_id,amount) VALUES (:cart,:product,:qty)");
             $result->bindParam('cart', $_SESSION['cart']);
             $result->bindParam('product', $id);
             $result->bindParam('qty', $qty);
