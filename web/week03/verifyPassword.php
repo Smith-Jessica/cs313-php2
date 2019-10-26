@@ -56,8 +56,9 @@ session_start();
           exit();
       }
 
-      if ($password == $rows['password']) {
+      if ($pass == $rows['password']) {
         $_SESSION['username'] = $username;
+        echo $rows['password'];
         echo "You're Logged In!";
     } else {
         echo "Username or password incorrect";
