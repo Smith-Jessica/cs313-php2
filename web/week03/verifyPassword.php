@@ -25,7 +25,7 @@ session_start();
           }
 /*
     
-    $password = $_POST['password'];
+   
 
     $con = new mysqli($db_host, $db_user, $db_pass, $db_name);
     $stmt = $con->prepare("SELECT * FROM users WHERE username = ?");
@@ -39,9 +39,29 @@ session_start();
         
         //$result = $db->query("SELECT * FROM user");
         $username = $_POST['username'];
-        $result = $db->prepare("SELECT username FROM users WHERE username = ':username';");
-        
+        $pass = $_POST['password'];
 
+        $result = $db->prepare("SELECT username FROM users WHERE username = ':username';");
+        try {   
+
+          $result = $db->prepare("SELECT * FROM users WHERE username = :user AND password = :pass");
+          $result->bindParam(':user', $username);
+          $result->bindParam(':password', $pass);
+          $result->execute();
+          $rows = $result->fetch(PDO::FETCH_NUM);
+      }
+
+      catch (Exception $e) {
+          echo "Could not retrieve data from database". $e->getMessage();
+          exit();
+      }
+
+      if ($username == $rows && $password == $rows) {
+        $_SESSION['username'] = $username;
+        echo "You're Logged In!";
+    } else {
+            echo "Username or password incorrect";
+    }
 
           //echo $result;
         //$stmt = $db->prepare("SELECT * FROM user WHERE username=:username");
@@ -53,7 +73,7 @@ session_start();
        // $user = $stmt->fetch();
 
         // Verify user password and set $_SESSION
-        //if (password_verify( $_POST['password'], $user["password"])) {
+        //if ($username == $rows && $password == $rows) {
         //  $_SESSION['user_id'] = $user["id"];
        // }
        
@@ -61,7 +81,7 @@ session_start();
 ?>
 <?php 
 include 'navbar.php';
-if (isset($_SESSION['user_id'])) {
+if (isset($_SESSION['username'])) {
     echo "Success! You are now logged in!";
   }
   else {
