@@ -45,7 +45,7 @@ session_start();
         //$result = $db->prepare("SELECT username FROM users WHERE username = ':username';");
         try {   
           $sql = 'SELECT username, password FROM users WHERE username = :user AND password = :pass;';
-          $result = $db->prepare("");
+          $result = $db->prepare($sql);
           $result->bindParam(':user', $username);
           $result->bindParam(':pass', $pass);
           $result->execute();
