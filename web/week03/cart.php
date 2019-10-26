@@ -92,14 +92,15 @@ foreach ($db->query('SELECT * FROM products') as $row)
               $result->bindParam('cartid', $_SESSION['cart']);
               $result->execute();
               //$rows = $result->fetch(PDO::FETCH_ASSOC);
-
+              $id=0;
               while($rows = $result->fetch()) {
                 echo $rows['product_id'];
+                
                 for($i = 0; $i < $allProducts->length(); $i++){
                  $y = $allProducts->getItem($i);  
                  if($y->id == $rows['product_id']) {
                              echo "<tr>";
-                             echo "<th scope=\"row\">$i</th>";
+                             echo "<th scope=\"row\">$id</th>";
                              echo "<td>$y->title</td>";
                              echo "<td>$y->desc</td>";
                              echo "<td>1</td>"; //quantity goes here
@@ -116,6 +117,8 @@ foreach ($db->query('SELECT * FROM products') as $row)
                    echo $rows['product_id'];
                  }
                 }
+
+                $id++;
                }
 
             }
