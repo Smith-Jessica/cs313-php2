@@ -35,20 +35,22 @@ session_start();
   $user = $result->fetch_object();
   
 */
-        
-        
         //$result = $db->query("SELECT * FROM user");
         $username = $_POST['username'];
         $pass = $_POST['password'];
 
+        echo $username;
+        echo $pass;
+
         //$result = $db->prepare("SELECT username FROM users WHERE username = ':username';");
         try {   
-
-          $result = $db->prepare("SELECT username, password FROM users WHERE username = :user AND password = :pass;");
+          $sql = 'SELECT username, password FROM users WHERE username = :user AND password = :pass;';
+          $result = $db->prepare("");
           $result->bindParam(':user', $username);
           $result->bindParam(':pass', $pass);
           $result->execute();
           $rows = $result->fetch(PDO::FETCH_NUM);
+
       }
 
       catch (Exception $e) {
@@ -56,11 +58,11 @@ session_start();
           exit();
       }
 
-      if ($password == $rows) {
+      if ($password == $rows['password']) {
         $_SESSION['username'] = $username;
         echo "You're Logged In!";
     } else {
-            echo "Username or password incorrect";
+        echo "Username or password incorrect";
     }
 
           //echo $result;
