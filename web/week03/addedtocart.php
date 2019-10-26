@@ -39,7 +39,7 @@ $allProducts = new Collection();
 
 foreach ($db->query('SELECT id FROM products') as $row)
 {
- $id = $row;
+ $id = $row['id'];
 }
 
 $title = $_GET["title"];
@@ -49,7 +49,7 @@ $qty = 1;
           //add the product id to the cart table
           //cart_id | product_id | amount
           try {   
-            $result = $db->prepare("INSERT INTO cart_product VALUES (:cart,:product,:qty);");
+            $result = $db->prepare("INSERT INTO cart_product VALUES (:cart,:product,:qty)");
             $result->bindParam('cart', $_SESSION['cart']);
             $result->bindParam('product', $id);
             $result->bindParam('qty', $qty);
@@ -59,6 +59,9 @@ $qty = 1;
   
         catch (Exception $e) {
             echo "Could not retrieve data from database". $e->getMessage();
+            echo $title;
+            $qty = 1;
+            
             exit();
         }
              
@@ -67,7 +70,7 @@ $qty = 1;
       }
         else { 
             echo "There was an error adding the product to your cart";
-            
+
         }
 
 
