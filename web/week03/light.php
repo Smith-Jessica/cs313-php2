@@ -46,7 +46,7 @@ session_start();
             die();
           }
 
-        $detail_pg = 'hub.php';
+        $detail_pg = 'light.php';
         $stmt = $db->prepare("SELECT * FROM products WHERE detail_pg=:detail_pg");
         $stmt->execute(['detail_pg' => $detail_pg]); 
         $product = $stmt->fetch();
