@@ -86,7 +86,7 @@ foreach ($db->query('SELECT * FROM products') as $row)
 }
         if(isset($_SESSION["cart"])) { //if the user is logged in
           //get the all product ids where the cart $id == $_SESSION['cart]
-          echo "the session cart is set, going to get the data from db\n";
+          //echo "the session cart is set, going to get the data from db\n";
             try {   
               $result = $db->prepare("SELECT product_id FROM orders WHERE cart_id = :cartid");
               $result->bindParam('cartid', $_SESSION['cart']);
@@ -94,7 +94,7 @@ foreach ($db->query('SELECT * FROM products') as $row)
               //$rows = $result->fetch(PDO::FETCH_ASSOC);
               $id=0;
               while($rows = $result->fetch()) {
-                echo $rows['product_id'];
+                //echo $rows['product_id'];
                 
                 for($i = 0; $i < $allProducts->length(); $i++){
                  $y = $allProducts->getItem($i);  
@@ -112,9 +112,9 @@ foreach ($db->query('SELECT * FROM products') as $row)
                              $_SESSION["total"] = $total;
                  }
                  else {
-                   echo "the id does not match\n";
-                   echo $y->id;
-                   echo $rows['product_id'];
+                   //echo "the id does not match\n";
+                   //echo $y->id;
+                   //echo $rows['product_id'];
                  }
                 }
 
