@@ -112,6 +112,8 @@ foreach ($db->query('SELECT * FROM products') as $row)
                  }
                  else {
                    echo "the id does not match\n";
+                   echo $y->id;
+                   echo $rows['id'];
                  }
                 }
                }
