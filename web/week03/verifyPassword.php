@@ -53,7 +53,7 @@ session_start();
 include 'navbar.php';
 if (isset($_SESSION['username'])) {
     echo "Success! You are now logged in!";
-
+    header("Location: https://floating-ocean-98131.herokuapp.com/week03/dashboard.php");
   }
   else {
       echo "the session variable was not set. I'm sorry.";
