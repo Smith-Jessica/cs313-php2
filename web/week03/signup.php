@@ -21,6 +21,18 @@ session_start();
 
 <form action="newUser.php" method="POST">
 <div class="form-group row">
+<label for="inputFirst" class="col-sm-2 col-form-label">First Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="first_name" id="inputFirst" placeholder="First Name" required>
+      </div>
+</div>
+<div class="form-group row">
+<label for="inputLast" class="col-sm-2 col-form-label">Last Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="last_name" id="inputLast" placeholder="Last Name" required>
+      </div>
+</div>
+<div class="form-group row">
 <label for="inputUsername" class="col-sm-2 col-form-label">Username</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" name="username" id="inputUsername" placeholder="username" required>
