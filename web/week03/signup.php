@@ -45,7 +45,7 @@ session_start();
     </div>
 </div>
 
-    <button class="btn btn-primary col-sm-5" type="submit" value="Sign up">
+    <button class="btn btn-primary col-sm-5" type="submit" value="Sign up">Sign Up</button>
 </form>
 </div>
 </body>
