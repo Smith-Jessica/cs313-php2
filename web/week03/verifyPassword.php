@@ -36,7 +36,7 @@ echo "Session has been started going to connect to the db.";
           $result->bindParam('pass', $pass);
           $result->execute();
           $rows = $result->fetch(PDO::FETCH_ASSOC);
-          echo $rows['password'];
+          echo $rows['pass'];
       }
 
       catch (Exception $e) {
@@ -45,7 +45,7 @@ echo "Session has been started going to connect to the db.";
       }
       echo $rows['password'];
 
-    if (password_verify($pass, $rows['password'])) {
+    if (password_verify($pass, $rows['pass'])) {
       echo "Password is correct\n";
         // Correct Password
         $_SESSION['username'] = $username;
