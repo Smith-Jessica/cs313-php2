@@ -27,9 +27,10 @@ echo "Session has been started going to connect to the db.";
           
         $username = htmlspecialchars($_POST['username']);
         $pass = htmlspecialchars($_POST['password']);
-        $passwordHash = password_hash($pass, PASSWORD_DEFAULT); 
+        
         echo "Username is: " . $username;
      try {   
+       echo "in the try going to get some data from the db";
           $result = $db->prepare("SELECT password, id FROM users WHERE username = :user AND password = :pass");
           $result->bindParam('user', $username);
           $result->bindParam('pass', $pass);
