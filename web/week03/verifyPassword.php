@@ -31,12 +31,12 @@ echo "Session has been started going to connect to the db.";
         echo "Username is: " . $username;
      try {   
        echo "in the try going to get some data from the db";
-          $result = $db->prepare("SELECT password, id FROM users WHERE username = :user AND password = :pass");
+          $result = $db->prepare("SELECT password, id FROM users WHERE username = :user");
           $result->bindParam('user', $username);
-          $result->bindParam('pass', $pass);
+          //$result->bindParam('pass', $pass);
           $result->execute();
           $rows = $result->fetch(PDO::FETCH_ASSOC);
-          echo $rows['pass'];
+          echo $rows['password'];
       }
 
       catch (Exception $e) {
@@ -45,7 +45,7 @@ echo "Session has been started going to connect to the db.";
       }
       echo $rows['password'];
 
-    if (password_verify($pass, $rows['pass'])) {
+    if (password_verify($pass, $rows['password'])) {
       echo "Password is correct\n";
         // Correct Password
         $_SESSION['username'] = $username;
