@@ -40,11 +40,13 @@ session_start();
           echo "Could not retrieve data from database". $e->getMessage();
           exit();
       }
-
-      if ($passwordHash == $rows['password']) {
+      
+    if (password_verify($pass, $rows['password'])) {
+        // Correct Password
         $_SESSION['username'] = $username;
-        $_SESSION['cart'] = $rows['cart_id'];
+        $_SESSION['cart'] = $rows['id'];
     } else {
+        // Wrong password
         echo "Username or password incorrect";
     }
      
