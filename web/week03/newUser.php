@@ -42,26 +42,21 @@ $passwordHash = password_hash($pass, PASSWORD_DEFAULT);
           $result->bindParam('pass', $passwordHash);
           $result->execute();
           $rows = $result->fetch(PDO::FETCH_ASSOC);
+
+          $_SESSION['username'] = $username;
       }
 
       catch (Exception $e) {
-          echo "Could not retrieve data from database". $e->getMessage();
+          echo "Could not create new user". $e->getMessage();
           exit();
       }
-
-      if ($pass == $rows['password']) {
-        $_SESSION['username'] = $username;
-        $_SESSION['cart'] = $rows['cart_id'];
-    } else {
-        echo "Username or password incorrect";
-    }
      
         
 ?>
 <?php 
 include 'navbar.php';
 if (isset($_SESSION['username'])) {
-    echo "Success! You are now logged in!";
+    echo "Success! You are now a member!";
     header("Location: https://floating-ocean-98131.herokuapp.com/week03/dashboard.php");
   }
   else {
