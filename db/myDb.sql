@@ -3,8 +3,7 @@ CREATE TABLE users (
     first_name  TEXT,
     last_name   TEXT,
     username    TEXT,
-    password    TEXT,
-    cart_id     INTEGER REFERENCES cart(id) ON UPDATE CASCADE ON DELETE CASCADE);
+    password    TEXT);
 
 CREATE TABLE cart (
     id          SERIAL PRIMARY KEY);
@@ -30,8 +29,16 @@ CREATE TABLE cart_product (
   CONSTRAINT cart_product_pkey PRIMARY KEY (cart_id, product_id)  -- explicit pk
 );
 
+CREATE TABLE orders (
+order_id     SERIAL PRIMARY KEY,
+cart_id      INTEGER REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
+product_id   INTEGER REFERENCES products(id) ON UPDATE CASCADE,
+quantity     NUMERIC);
+
+
+
 INSERT INTO cart DEFAULT VALUES;
-INSERT INTO users VALUES(DEFAULT,'test', 'user', 'test', 'test', 1);
+INSERT INTO users VALUES(DEFAULT,'test', 'user', 'test', 'test');
 
 INSERT INTO categories VALUES(DEFAULT,'Hub', 'This is a category for all the different command hubs') RETURNING id;
 INSERT INTO products VALUES(DEFAULT,'Google Home', 'This is Googles Command hub', 'hub.jpg', 129.00, 1, 'hub.php');
