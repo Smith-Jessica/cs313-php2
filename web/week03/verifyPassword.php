@@ -36,6 +36,7 @@ echo "Session has been started going to connect to the db.";
           $result->bindParam('pass', $pass);
           $result->execute();
           $rows = $result->fetch(PDO::FETCH_ASSOC);
+          echo $rows['password'];
       }
 
       catch (Exception $e) {
