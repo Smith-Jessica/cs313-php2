@@ -29,7 +29,7 @@ session_start();
         $passwordHash = password_hash($pass, PASSWORD_DEFAULT); 
 
      try {   
-          $result = $db->prepare("SELECT password, cart_id FROM users WHERE username = :user AND password = :pass");
+          $result = $db->prepare("SELECT password, id FROM users WHERE username = :user AND password = :pass");
           $result->bindParam('user', $username);
           $result->bindParam('pass', $pass);
           $result->execute();
