@@ -2,6 +2,7 @@
 // Start the session
 session_start();
 
+echo "Session has been started going to connect to the db.";
         try
           {
             $dbUrl = getenv('DATABASE_URL');
@@ -27,7 +28,7 @@ session_start();
         $username = htmlspecialchars($_POST['username']);
         $pass = htmlspecialchars($_POST['password']);
         $passwordHash = password_hash($pass, PASSWORD_DEFAULT); 
-
+        echo "Username is: " . $username;
      try {   
           $result = $db->prepare("SELECT password, id FROM users WHERE username = :user AND password = :pass");
           $result->bindParam('user', $username);
@@ -41,7 +42,7 @@ session_start();
           exit();
       }
       echo $rows['password'];
-      
+
     if (password_verify($pass, $rows['password'])) {
       echo "Password is correct\n";
         // Correct Password
