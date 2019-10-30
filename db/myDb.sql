@@ -21,13 +21,13 @@ CREATE TABLE products (
     price       FLOAT(2),
     category_id INTEGER REFERENCES categories(id),
     detail_pg   TEXT);
-    
-CREATE TABLE cart_product (
+
+CREATE TABLE orders (
+  order_id   SERIAL PRIMARY KEY,
   cart_id    INTEGER REFERENCES cart(id) ON UPDATE CASCADE ON DELETE CASCADE,
   product_id INTEGER REFERENCES products(id) ON UPDATE CASCADE,
-  amount     NUMERIC,
-  CONSTRAINT cart_product_pkey PRIMARY KEY (cart_id, product_id)  -- explicit pk
-);
+  amount     NUMERIC);
+
 
 CREATE TABLE orders (
 order_id     SERIAL PRIMARY KEY,
