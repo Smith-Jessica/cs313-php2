@@ -126,36 +126,7 @@ foreach ($db->query('SELECT * FROM products') as $row)
               echo "Could not retrieve data from database". $e->getMessage();
               exit();
           }
-         
-          //loop through the product ids and where they match the product ids of each $allProduct index show them in the table
-         
-
-
-/*
-            echo "session variable is set";
-            for($x = 0; $x < $allProducts->length(); $x++){
-                echo "in the first for loop";
-                $y = $allProducts->getItem($x);
-                echo "it's not the y var";
-                for($z = 0; $z < count($_SESSION["cart"]); $z++) {
-                  // echo "in the second for loop"; 
-                    if($_SESSION["cart"][$z] == $y->title) {
-                        
-                    //    echo "whatever";
-                        echo "<tr>";
-                        echo "<th scope=\"row\">$x</th>";
-                        echo "<td>$y->title</td>";
-                        echo "<td>$y->desc</td>";
-                        echo "<td>1</td>";
-                        echo "<td>$y->price</td>";
-                        echo "<td><a href=\"removefromcart.php?title=" . $y->title ."\" class=\"btn btn-primary\">Remove from Cart</a></td>";
-                        echo "</tr>";
-                        
-                        $total += $y->price;
-                        $_SESSION["total"] = $total;
-                    }
-                }
-            }*/
+          
         }
         else {
             echo "<h1>You don't have a cart!</h1>";
