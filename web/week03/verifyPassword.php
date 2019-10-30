@@ -40,8 +40,10 @@ session_start();
           echo "Could not retrieve data from database". $e->getMessage();
           exit();
       }
+      echo $rows['password'];
       
     if (password_verify($pass, $rows['password'])) {
+      echo "Password is correct\n";
         // Correct Password
         $_SESSION['username'] = $username;
         $_SESSION['cart'] = $rows['id'];
