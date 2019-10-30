@@ -26,7 +26,7 @@ session_start();
           
         $username = htmlspecialchars($_POST['username']);
         $pass = htmlspecialchars($_POST['password']);
-
+        $passwordHash = password_hash($pass, PASSWORD_DEFAULT); 
 
      try {   
           $result = $db->prepare("SELECT password, cart_id FROM users WHERE username = :user AND password = :pass");
@@ -41,7 +41,7 @@ session_start();
           exit();
       }
 
-      if ($pass == $rows['password']) {
+      if ($passwordHash == $rows['password']) {
         $_SESSION['username'] = $username;
         $_SESSION['cart'] = $rows['cart_id'];
     } else {

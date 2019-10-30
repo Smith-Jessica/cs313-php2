@@ -29,8 +29,8 @@ session_start();
         $fname = htmlspecialchars($_POST['first_name']);
         $lname = htmlspecialchars($_POST['last_name']);
 
-//hash the password before adding it to the database
-$passwordHash = password_hash($pass, PASSWORD_DEFAULT);
+        //hash the password before adding it to the database
+        $passwordHash = password_hash($pass, PASSWORD_DEFAULT);
 
 
 
@@ -45,7 +45,6 @@ $passwordHash = password_hash($pass, PASSWORD_DEFAULT);
 
           $_SESSION['username'] = $username;
       }
-
       catch (Exception $e) {
           echo "Could not create new user". $e->getMessage();
           exit();
