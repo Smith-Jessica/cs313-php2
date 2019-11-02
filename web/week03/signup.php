@@ -19,33 +19,41 @@ session_start();
   <div class="container-fluid">
 <?php include 'navbar.php'; ?>
 
-<form action="newUser.php" method="POST">
-<div class="form-group row">
-<label for="inputFirst" class="col-sm-2 col-form-label">First Name</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" name="first_name" id="inputFirst" placeholder="First Name" required>
-      </div>
-</div>
-<div class="form-group row">
-<label for="inputLast" class="col-sm-2 col-form-label">Last Name</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" name="last_name" id="inputLast" placeholder="Last Name" required>
-      </div>
-</div>
-<div class="form-group row">
-<label for="inputUsername" class="col-sm-2 col-form-label">Username</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" name="username" id="inputUsername" placeholder="username" required>
-      </div>
-</div>
-<div class="form-group row">
-    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" name="password" id="inputPassword" placeholder="Password" required>
-    </div>
-</div>
+<?php 
 
-    <button class="btn btn-primary col-sm-5" type="submit" value="Sign up">Sign Up</button>
-</form>
+  if(isset($_SESSION['cart'])) {
+    echo "<form action=\"newUser.php\" method=\"POST\">";
+    echo "<div class=\"form-group row\">";
+    echo "<label for=\"inputFirst\" class=\"col-sm-2 col-form-label\">First Name</label>";
+    echo "<div class=\"col-sm-10\">";
+      echo "<input type=\"text\" class=\"form-control\" name=\"first_name\" id=\"inputFirst\" placeholder=\"First Name\" required>";
+      echo "</div>";
+      echo "</div>";
+    echo "<div class=\"form-group row\">";
+    echo "<label for=\"inputLast\" class=\"col-sm-2 col-form-label\">Last Name</label>";
+    echo "<div class=\"col-sm-10\">";
+      echo "<input type=\"text\" class=\"form-control\" name=\"last_name\" id=\"inputLast\" placeholder=\"Last Name\" required>";
+      echo "</div>";
+    echo "</div>";
+    echo "<div class=\"form-group row\">";
+    echo "<label for=\"inputUsername\" class=\"col-sm-2 col-form-label\">Username</label>";
+    echo "<div class=\"col-sm-10\">";
+      echo "<input type=\"text\" class=\"form-control\" name=\"username\" id=\"inputUsername\" placeholder=\"username\" required>";
+      echo "</div>";
+    echo "</div>";
+    echo "<div class=\"form-group row\">";
+    echo "<label for=\"inputPassword\" class=\"col-sm-2 col-form-label\">Password</label>";
+    echo "<div class=\"col-sm-10\">";
+      echo "<input type=\"password\" class=\"form-control\" name=\"password\" id=\"inputPassword\" placeholder=\"Password\" required>";
+    echo "</div>";
+    echo "</div>";
+
+    echo "<button class=\"btn btn-primary col-sm-5\" type=\"submit\" value=\"Sign up\">Sign Up</button>";
+    echo "</form>";
+  }
+  else {
+    echo "<div>You are already a member! Yay!</div>";
+  }
+?>
 </div>
 </body>
