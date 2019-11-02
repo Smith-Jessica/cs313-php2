@@ -43,6 +43,11 @@ INSERT INTO users VALUES(DEFAULT,'test', 'user', 'test', 'test');
 INSERT INTO categories VALUES(DEFAULT,'Hub', 'This is a category for all the different command hubs') RETURNING id;
 INSERT INTO products VALUES(DEFAULT,'Google Home', 'This is Googles Command hub', 'hub.jpg', 129.00, 1, 'hub.php');
 INSERT INTO products VALUES(DEFAULT,'Amazon Alexa Echo', 'This is Amazon Alexa, the Command hub', 'alexa.jpg', 149.00, 1, 'alexa.php');
+INSERT INTO products VALUES(DEFAULT,'Nest Thermostat 3rd Gen', 'The thermostat of all thermostats', 'nest3.jpg', 349.99, 2, 'nest3.php');
+INSERT INTO products VALUES(DEFAULT,'Ring Video Doorbell', 'This is so you can spy on your neighbors', 'ring.jpg', 159.99, 2, 'ring.php');
+INSERT INTO products VALUES(DEFAULT,'Sonos Beam - Smart TV Sound Bar', 'This is so you can jam all throughout the house. Or really scare your spouse.', 'sonos.jpg', 1599.90, 2, 'sonos.php');
+
+
 
 INSERT INTO categories VALUES(DEFAULT,'Light', 'This is a category for everything lights') RETURNING id;
 INSERT INTO products VALUES(DEFAULT,'Light', 'This is a smart light', 'light.jpg', 30.00, 2, 'light.php');
