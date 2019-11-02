@@ -1,7 +1,17 @@
+
 <?php
 // Start the session
 session_start();
+
+if ( isset( $_SESSION['username'] ) ) {
+  // Grab user data from the database using the user_id
+  // Let them access the "logged in only" pages
+} else {
+  // Redirect them to the login page
+  header("Location: https://floating-ocean-98131.herokuapp.com/week03/login.php");
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,11 +22,11 @@ session_start();
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <script src="week3.js"></script>
-  <title>Browse Items</title>
+  <title>Confirmation</title>
 </head>
 
 <body>
-  <h1>Confirmation</h1>
+  <h1>Your Order</h1>
   <div class="container">
     <table class="table">
         <thead>
@@ -31,79 +41,92 @@ session_start();
         <tbody>
 
 <?php
-    include 'products.php';
+    
+try
+{
+  $dbUrl = getenv('DATABASE_URL');
+
+  $dbOpts = parse_url($dbUrl);
+
+  $dbHost = $dbOpts["host"];
+  $dbPort = $dbOpts["port"];
+  $dbUser = $dbOpts["user"];
+  $dbPassword = $dbOpts["pass"];
+  $dbName = ltrim($dbOpts["path"],'/');
+
+  $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+
+  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}
+catch (PDOException $ex)
+{
+  echo 'Error!: ' . $ex->getMessage();
+  die();
+}
+
+
+
+include 'products.php';
 
 $allProducts = new Collection();
-    
-    $allProducts->addItem(new Product(20, 'light.jpg', "The best light for your new Smart Home!", "Smart Home Light", 'light.php'), 0);
-    $allProducts->addItem(new Product(30, 'hub.jpg', "Google's Hub with Google Assistant will give you the control you want for your Smart Home", "Google Hub", 'hub.php'), 1);
-    $allProducts->addItem(new Product(30, 'alexa.jpg', "Amazon Alexa gives you complete control. Better than our competitors, who will remain nameless *cough*Google*cough*", "Amazon Alexa", 'alexa.php'), 2);
+$index = 0;
 
-  
+foreach ($db->query('SELECT * FROM products') as $row)
+{
+  $title =  $row['title'];
+  $desc = $row['description'];
+  $img = $row['image'];
+  $price = $row['price'];
+  $category = $row['category'];
+  $detail_pg = $row['detail_pg'];
+  $id = $row['id'];
 
-
-    if(isset($_SESSION["cart"])) {
-
-        //echo "session variable is set";
-        for($x = 0; $x < $allProducts->length(); $x++){
-          //  echo "in the first for loop";
-            $y = $allProducts->getItem($x);
-            //echo "it's not the y var";
-            for($z = 0; $z < count($_SESSION["cart"]); $z++) {
-              // echo "in the second for loop"; 
-                if($_SESSION["cart"][$z] == $y->title) {
-                    
-                //    echo "whatever";
-                    echo "<tr>";
-                    echo "<th scope=\"row\">$x</th>";
-                    echo "<td>$y->title</td>";
-                    echo "<td>$y->desc</td>";
-                    echo "<td>1</td>";
-                    echo "<td>$y->price</td>";
-                    echo "</tr>";
-                    
-                    $total += $y->price;
-                    $_SESSION["total"] = $total;
+  $allProducts->addItem(new Product($price, $img, $desc, $title, $detail_pg, $id), $index);
+  $index++;
+}
+        if(isset($_SESSION["cart"])) { //if the user is logged in
+          //get the all product ids where the cart $id == $_SESSION['cart]
+          //echo "the session cart is set, going to get the data from db\n";
+            try {   
+              $result = $db->prepare("SELECT product_id FROM orders WHERE cart_id = :cartid");
+              $result->bindParam('cartid', $_SESSION['cart']);
+              $result->execute();
+              //$rows = $result->fetch(PDO::FETCH_ASSOC);
+              $id=0;
+              while($rows = $result->fetch()) {
+                //echo $rows['product_id'];
+                
+                for($i = 0; $i < $allProducts->length(); $i++){
+                 $y = $allProducts->getItem($i);  
+                 if($y->id == $rows['product_id']) {
+                             echo "<tr>";
+                             echo "<th scope=\"row\">$id</th>";
+                             echo "<td>$y->title</td>";
+                             echo "<td>$y->desc</td>";
+                             echo "<td>1</td>"; //quantity goes here
+                             echo "<td>$y->price</td>";
+                             echo "</tr>";
+                             
+                             $total += $y->price;
+                             $_SESSION["total"] = $total;
+                 }
+                 else {
+                   //echo "the id does not match\n";
+                   //echo $y->id;
+                   //echo $rows['product_id'];
+                 }
                 }
-            }
-        }
-    }
-    else {
-        echo "There's nothing in your cart!";
-    }
-?>
-</tbody>
-<tfoot>
-<tr>
-  <th colspan="4">Total :</th>
-  <td><?php echo $_SESSION["total"]; ?> </td>
-</tr>
-</tfoot>
-</table>
-</div>
-<div class="container">
-<?php
-    $full_name = htmlspecialchars($_POST["full-name"]);
-    $address_line1 = htmlspecialchars($_POST["address-line1"]);
-    $address_line2 = htmlspecialchars($_POST["address-line2"]);
-    $city = htmlspecialchars($_POST["city"]);
-    $region = htmlspecialchars($_POST["region"]);
-    $postal_code = htmlspecialchars($_POST["postal-code"]);
-    $country = htmlspecialchars($_POST["country"]);
 
-    echo "<div class=\"container-fluid\">";
-    echo "<div class=\"row\">";
-    echo "<div class=\"col-sm-6 d-flex justify-content-center\">";
-    echo "<div class=\"card\" style=\"width:25rem\">";
-    echo "<p class=\"card-text\">" . $full_name . "</p>";
-    echo "<p class=\"card-text\">" . $address_line1 . "</p>";
-    echo "<p class=\"card-text\">" . $address_line2 . "</p>";
-    echo "<p class=\"card-text\">" . $city . "</p>";
-    echo "<p class=\"card-text\">" . $region . "</p>";
-    echo "<p class=\"card-text\">" . $postal_code . "</p>";
-    echo "<p class=\"card-text\">" . $country . "</p>";
-    echo "</div>"
-?>
-</div>
-</body>
-</html>
+                $id++;
+               }
+
+            }
+          catch (Exception $e) {
+              echo "Could not retrieve data from database". $e->getMessage();
+              exit();
+          }
+          
+        }
+        else {
+            echo "<h1>You don't have anything in your cart!</h1>";
+        }
