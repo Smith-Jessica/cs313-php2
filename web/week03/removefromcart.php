@@ -5,18 +5,27 @@ session_start();
 include 'navbar.php';
 include 'products.php';
 
-        $allProducts = new Collection();
-    
-        $allProducts->addItem(new Product(20, 'light.jpg', "The best light for your new Smart Home!", "Smart Home Light", 'light.php'), 0);
-        $allProducts->addItem(new Product(30, 'hub.jpg', "Google's Hub with Google Assistant will give you the control you want for your Smart Home", "Google Hub", 'hub.php'), 1);
-        $allProducts->addItem(new Product(30, 'alexa.jpg', "Amazon Alexa gives you complete control. Better than our competitors, who will remain nameless *cough*Google*cough*", "Amazon Alexa", 'alexa.php'), 2);
-   
-$title = $_GET["title"];
-
-            
-            if (($key = array_search($title, $_SESSION["cart"])) !== false) {
-                unset($_SESSION["cart"][$key]); echo "<h1>The product has been removed from your cart!</h1>"; 
-            }
+if(isset($_SESSION["cart"])) { //if the user is logged in
+    //get the all product ids where the cart $id == $_SESSION['cart]
+    //echo "the session cart is set, going to get the data from db\n";
+      try {   
+        $result = $db->prepare("DELETE FROM orders WHERE cart_id= :cartid AND product_id = :prodid");
+        $result->bindParam('cartid', $_SESSION['cart']);
+        $result->bindParam('prodid', $_GET["id"]);
+        $result->execute();
+        
+        $product_id = $_GET["id"];
+        echo "<h1>The product has been removed from your cart!</h1>";
+      }
+    catch (Exception $e) {
+            echo "Could not delete data from database". $e->getMessage();
+            exit();
+        }
+        
+      }
+      else {
+          echo "<h1>You don't have anything in your cart!</h1>";
+      }   
         
 
 

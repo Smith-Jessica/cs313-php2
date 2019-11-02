@@ -105,7 +105,7 @@ foreach ($db->query('SELECT * FROM products') as $row)
                              echo "<td>$y->desc</td>";
                              echo "<td>1</td>"; //quantity goes here
                              echo "<td>$y->price</td>";
-                             echo "<td><a href=\"removefromcart.php?title=" . $y->title ."\" class=\"btn btn-primary\">Remove from Cart</a></td>";
+                             echo "<td><a href=\"removefromcart.php?id=" . $y->id ."\" class=\"btn btn-primary\">Remove from Cart</a></td>";
                              echo "</tr>";
                              
                              $total += $y->price;
