@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +22,7 @@
       <li class="active"><a href="browse.php">Home</a></li>
       <li class="active"><a href="cart.php">View Cart</a></li>
       <li class="active pull-right"><a class="btn btn-success" href="login.php">Login</a></li>
-      <li class="active pull-right"><a class="btn btn-success" href="signup.php">Sign Up</a></li>
+      <?php if(!isset($_SESSION['cart'])) { echo "<li class=\"active pull-right\"><a class=\"btn btn-success\" href=\"signup.php\">Sign Up</a></li>";} ?>
       <li class="active pull-right"><a class="btn btn-success" href="logout.php">Log Out</a></li>
     </ul>
   </div>
