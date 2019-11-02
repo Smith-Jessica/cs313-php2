@@ -33,7 +33,7 @@ session_start();
     </div>
 </div>
 
-    <button class="btn btn-primary col-sm-2" type="submit" value="Submit">
+    <button class="btn btn-primary col-sm-2" type="submit" value="Submit">Submit</button>
 </form>
 </div>
 </body>
