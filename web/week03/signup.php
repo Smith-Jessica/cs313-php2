@@ -21,7 +21,7 @@ session_start();
 
 <?php 
 
-  if(isset($_SESSION['username'])) {
+  if(!isset($_SESSION['username'])) {
     echo "<form action=\"newUser.php\" method=\"POST\">";
     echo "<div class=\"form-group row\">";
     echo "<label for=\"inputFirst\" class=\"col-sm-2 col-form-label\">First Name</label>";
