@@ -10,6 +10,7 @@ if(isset($_SESSION["cart"])) { //if the user is logged in
     echo "the session cart is set, going to get the data from db\n";
       try {
         $product_id = $_GET["id"];
+        echo "the GET variable is fine\n";
         $result = $db->prepare("DELETE FROM orders WHERE cart_id= :cartid AND product_id = :prodid");
         echo "the prepare statement is fine\n";
         $result->bindParam('cartid', $_SESSION['cart']);
