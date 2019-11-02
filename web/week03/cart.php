@@ -129,7 +129,7 @@ foreach ($db->query('SELECT * FROM products') as $row)
           
         }
         else {
-            echo "<h1>You don't have a cart!</h1>";
+            echo "<h1>You don't have anything in your cart!</h1>";
         }
 ?>
 </tbody>
